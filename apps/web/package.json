@@ -1,0 +1,38 @@
+{
+  "name": "web",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "clean": "rm -rf dist",
+    "lint": "eslint src/",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/react": "^3.6.2",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.2",
+    "@repo/doc-search": "workspace:*",
+    "@repo/program-data": "workspace:*",
+    "@repo/tailwind-config": "workspace:*",
+    "@repo/ui": "workspace:*",
+    "@sentry/astro": "^8.36.0",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "astro": "^4.16.5",
+    "eslint": "*",
+    "lucide-react": "^0.453.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "*",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*"
+  }
+}

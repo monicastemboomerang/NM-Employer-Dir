@@ -1,0 +1,61 @@
+---
+import { Button, Logo, Separator, Text } from "@repo/ui";
+import { MAIN_LINKS, SITE_INFO } from "../../utils";
+
+const year = new Date().getFullYear();
+---
+
+<style>
+  .footer {
+    /* background-color: RGBA(255, 255, 255, 0); */
+    border-width: 1px;
+
+    border-image: linear-gradient(
+        90deg,
+        rgba(255, 178, 77, 0) 60%,
+        hsl(var(--tertiary)) 100%
+      )
+      1;
+  }
+</style>
+
+<footer class="p-5 bg-accent">
+  <div class="footer p-3 flex items-start">
+    <div class="flex flex-col w-full">
+      <div class="flex justify-center">
+        <!-- <Heading colorVariant="cool" level={2}>{SITE_INFO.title}</Heading> -->
+        <Logo dark />
+      </div>
+
+      <!-- <div class="flex justify-between">
+        <div class="flex flex-col space-y-4">
+          <Text variant="lead">CONTACT</Text>
+          <Button variant="link" href="/">Home</Button>
+        </div>
+      </div> -->
+
+      <div class="flex justify-center">
+        {
+          MAIN_LINKS.map((link) => (
+            <Button
+              className="text-accent-foreground"
+              href={link.url}
+              key={link.url}
+              {...link.props}
+              variant="link"
+            >
+              {link.label}
+            </Button>
+          ))
+        }
+      </div>
+      <Separator />
+      <div class="flex justify-between items-center">
+        <span></span>
+        <Text size="sm" variant="muted"
+          >&copy; {year}{" "}{SITE_INFO.title}</Text
+        >
+      </div>
+    </div>
+  </div>
+</footer>

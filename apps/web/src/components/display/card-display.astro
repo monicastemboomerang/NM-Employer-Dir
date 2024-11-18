@@ -1,0 +1,40 @@
+---
+import type { CurriculumDisplay } from "@repo/program-data";
+import {
+  Button,
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@repo/ui";
+interface Props {
+  title: string;
+  description?: string;
+  count?: number;
+  icon?: CurriculumDisplay["icon"];
+  href?: string;
+  key?: unknown;
+}
+
+const { title, description, count, icon: Icon, href } = Astro.props;
+---
+
+<Card className="h-auto  text-accent-foreground">
+  <div class="h-full flex flex-col">
+    <CardHeader>
+      <div class="flex items-center justify-between">
+        <div class="p-2 border rounded-lg">
+          {Icon && <Icon className="h-6 w-6" />}
+        </div>
+        <span class="text-sm">{count} services</span>
+      </div>
+      <CardTitle className="mt-4 ">{title}</CardTitle>
+      <CardDescription>{description}</CardDescription>
+    </CardHeader>
+    <CardFooter className="flex justify-end items-end h-full">
+      <Button href={href}>View</Button>
+      <!-- <a href={`/services/${slug}`}>View</a> -->
+    </CardFooter>
+  </div>
+</Card>

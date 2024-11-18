@@ -1,0 +1,43 @@
+{
+  "name": "@repo/program-data",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "test": "jest",
+    "get-data": "tsx src/scripts/get-base-data.ts",
+    "circular": "dpdm --no-warning --no-tree --exit-code circular:1 ./src/index.ts"
+  },
+  "jest": {
+    "preset": "@repo/jest-presets/browser"
+  },
+  "dependencies": {
+    "react": "*"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/jest-presets": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/eslint": "*",
+    "@types/jest": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "dpdm": "*",
+    "eslint": "*",
+    "jest": "*",
+    "lucide-react": "^0.453.0",
+    "tsup": "*",
+    "tsx": "^4.19.1",
+    "typescript": "*"
+  }
+}

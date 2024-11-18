@@ -1,0 +1,37 @@
+---
+import type { CurriculumDisplay } from "@repo/program-data";
+import { Button, Card, CardFooter, CardHeader, CardTitle } from "@repo/ui";
+
+interface Props {
+  service: CurriculumDisplay;
+  key?: unknown;
+}
+
+// const service = {
+//   icon: Calculator,
+//   count: 10,
+//   title: "Mathematics",
+//   description: "One-on-one and group mathematics instruction",
+// };
+
+const { service } = Astro.props;
+---
+
+<Card className="h-auto  text-accent-foreground">
+  <div class="h-full flex flex-col">
+    <CardHeader>
+      <div class="flex items-center justify-between">
+        <div class="p-2 border rounded-lg">
+          <service.icon className="h-6 w-6" />
+        </div>
+        <span class="text-sm">{service.count} services</span>
+      </div>
+      <CardTitle className="mt-4 ">{service.label}</CardTitle>
+      <!-- <CardDescription>{service.description}</CardDescription> -->
+    </CardHeader>
+    <CardFooter className="flex justify-end items-end h-full">
+      <Button href={`/curriculums/${service.slug}`}>View</Button>
+      <!-- <a href={`/services/${service.slug}`}>View</a> -->
+    </CardFooter>
+  </div>
+</Card>

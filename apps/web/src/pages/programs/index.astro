@@ -1,0 +1,8 @@
+---
+import TableLayout from "../../components/layouts/table-layout.astro";
+import { ProgramsDataTable } from "../../data/programs";
+---
+
+<TableLayout title="Programs">
+  <ProgramsDataTable client:load />
+</TableLayout>

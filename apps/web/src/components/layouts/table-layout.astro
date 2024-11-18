@@ -1,0 +1,17 @@
+---
+import HeaderSection from "../display/header-section.astro";
+import BaseLayout from "./base-layout.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title}>
+  <HeaderSection description={description} header={title} includeBackButton />
+  <div class="overflow-x-auto mx-8 my-8">
+    <slot />
+  </div>
+</BaseLayout>

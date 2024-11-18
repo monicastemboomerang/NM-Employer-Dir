@@ -1,0 +1,30 @@
+---
+import type { AgeDisplay } from "@repo/program-data";
+import { Badge, Button } from "@repo/ui";
+import { User } from "lucide-react";
+
+interface Props {
+  age: AgeDisplay;
+  key: unknown;
+  displayCount?: boolean;
+}
+
+const { age, displayCount } = Astro.props;
+const { label, slug, count } = age;
+---
+
+<Button
+  href={`/ages/${slug}`}
+  className="justify-between h-auto py-4"
+  variant="outline"
+>
+  <User />
+  {label}
+  {
+    displayCount && (
+      <Badge variant="inherit" className="ml-2">
+        {count}
+      </Badge>
+    )
+  }
+</Button>

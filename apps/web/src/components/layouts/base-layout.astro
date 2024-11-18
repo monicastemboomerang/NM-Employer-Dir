@@ -1,0 +1,82 @@
+---
+import "../../styles/globals.css";
+// eslint-disable-next-line import/no-unresolved -- unsure why this is being flagged
+import { ViewTransitions } from "astro:transitions";
+import { AppSidebar } from "../app-sidebar";
+import Footer from "../display/footer.astro";
+
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <title>NM Stem: {title}</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width" name="viewport" />
+    <meta content={Astro.generator} name="generator" />
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="/sitemap-index.xml" rel="sitemap" />
+    <ViewTransitions />
+  </head>
+  <body class="overflow-x-hidden w-screen">
+    <script is:inline>
+      const getThemePreference = () => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      };
+      const isDark = getThemePreference() === "dark";
+      document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+      if (typeof localStorage !== "undefined") {
+        const observer = new MutationObserver(() => {
+          const isDark = document.documentElement.classList.contains("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+        });
+        observer.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ["class"],
+        });
+      }
+    </script>
+    <!-- <NavBar
+      client:load
+      logo="/favicon.svg"
+      navItems={[
+        {
+          label: "Home",
+          href: "/",
+        },
+        {
+          label: "About",
+          href: "/about",
+        },
+        {
+          label: "Locations",
+          href: "/locations",
+        },
+      ]}
+    /> -->
+
+    <AppSidebar client:load>
+      <div
+        class="flex justify-between flex-col"
+        style={{
+          minHeight: "calc(100vh - 4rem)",
+        }}
+      >
+        <slot />
+        <Footer />
+      </div>
+    </AppSidebar>
+  </body>
+</html>

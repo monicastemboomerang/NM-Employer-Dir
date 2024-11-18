@@ -1,0 +1,19 @@
+---
+import { DatabaseProvider } from "@repo/storage";
+import BaseLayout from "../components/layouts/base-layout.astro";
+// Component Imports
+// import "@repo/ui/dist/index.css";
+import { ProgramsDataTable } from "../data/programs";
+
+export const something = 134;
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/basics/astro-components/
+---
+
+<BaseLayout title="About">
+  <h1>About Page</h1>
+  <DatabaseProvider>
+    <ProgramsDataTable client:load />
+  </DatabaseProvider>
+</BaseLayout>

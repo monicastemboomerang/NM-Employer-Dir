@@ -1,0 +1,37 @@
+---
+import { Programs } from "@repo/program-data";
+import type { GetStaticPaths } from "astro";
+import ProgramSection from "../../components/display/program-section.astro";
+import TableLayout from "../../components/layouts/table-layout.astro";
+
+const p = Programs.instance;
+
+export const getStaticPaths = (() => {
+  const p = Programs.instance;
+  return p.programs.map((prog) => {
+    return {
+      params: { program: prog.slug },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { program: programSlug } = Astro.params;
+
+const program = p.getProgram(programSlug);
+const locations: string[] = [];
+if (program?.location) {
+  locations.push(program.location);
+}
+---
+
+<TableLayout title={program?.name || ""}>
+  <div class="flex flex-col space-y-4">
+    <ProgramSection description={program?.overview} title="Overview" />
+    <ProgramSection link={program?.website} title="Website" />
+    <ProgramSection tags={locations} title="Location" />
+    <ProgramSection tags={program?.ages} title="Age" />
+    <ProgramSection description={program?.by} inline title="Organization" />
+    <ProgramSection tags={program?.curriculumTypes} title="Curriculum Types" />
+    <ProgramSection tags={program?.curriculumFocusAreas} title="Focus" />
+  </div>
+</TableLayout>
