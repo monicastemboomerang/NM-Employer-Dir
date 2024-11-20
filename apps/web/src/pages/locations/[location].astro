@@ -9,7 +9,7 @@ const p = Programs.instance;
 export function getStaticPaths() {
   const programs = Programs.instance;
 
-  const locations = programs.locations;
+  const locations = programs.getLocations();
   return locations.map((l) => {
     return {
       params: { location: l.slug },

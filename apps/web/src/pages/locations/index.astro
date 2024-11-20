@@ -5,7 +5,7 @@ import TableLayout from "../../components/layouts/table-layout.astro";
 
 const programs = Programs.instance;
 
-const locations = programs.locations;
+const locations = programs.getLocations();
 ---
 
 <TableLayout title="Locations">

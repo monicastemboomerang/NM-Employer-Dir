@@ -68,14 +68,21 @@ export function AppSidebar({ children }: { children: ReactNode }) {
               <CollapsibleContent>
                 <SidebarGroupContent>
                   <SidebarMenu>
-                    {Programs.instance.locations.map((location) => (
-                      <SidebarMenuItem key={location.slug}>
-                        <SidebarMenuButton href={`/locations/${location.slug}`}>
-                          {location.name}
-                          <SidebarMenuBadge>{location.count}</SidebarMenuBadge>
-                        </SidebarMenuButton>
-                      </SidebarMenuItem>
-                    ))}
+                    {Programs.instance
+                      .getLocations()
+                      .filter((_, idx) => idx < 7)
+                      .map((location) => (
+                        <SidebarMenuItem key={location.slug}>
+                          <SidebarMenuButton
+                            href={`/locations/${location.slug}`}
+                          >
+                            {location.label}
+                            <SidebarMenuBadge>
+                              {location.count}
+                            </SidebarMenuBadge>
+                          </SidebarMenuButton>
+                        </SidebarMenuItem>
+                      ))}
                   </SidebarMenu>
                 </SidebarGroupContent>
               </CollapsibleContent>

@@ -18,10 +18,11 @@ export const getStaticPaths = (() => {
 const { program: programSlug } = Astro.params;
 
 const program = p.getProgram(programSlug);
-const locations: string[] = [];
-if (program?.location) {
-  locations.push(program.location);
-}
+const locations = program?.getLocationsDisplay().map((l) => l.label) || [];
+// const locations: string[] = [];
+// if (program?.location) {
+//   locations.push(program.getLocationsDisplay());
+// }
 ---
 
 <TableLayout title={program?.name || ""}>
@@ -31,7 +32,7 @@ if (program?.location) {
     <ProgramSection link={program?.website} title="Website" />
     <ProgramSection tags={locations} title="Location" />
     <ProgramSection tags={program?.categories} title="Industry Category" />
-    <ProgramSection description={program?.by} inline title="Organization" />
+    <!-- <ProgramSection description={program?.by} inline title="Organization" /> -->
     <ProgramSection tags={program?.curriculumTypes} title="Curriculum Types" />
     <ProgramSection tags={program?.curriculumFocusAreas} title="Focus" />
   </div>

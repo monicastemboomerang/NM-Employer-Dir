@@ -35,27 +35,52 @@ export class Programs {
     return websites;
   }
 
-  get locations() {
-    const locs = new Set<string>();
+  // get locations() {
+  //   const locs = new Set<string>();
+
+  //   this.programs.forEach((program) => {
+  //     if (program.location) {
+  //       locs.add(program.location);
+  //     }
+  //   });
+
+  //   return [...locs]
+  //     .map((loc) => {
+  //       const matches = this.programs.filter(
+  //         (program) => program.location === loc
+  //       );
+  //       return {
+  //         name: loc,
+  //         slug: slugify(loc),
+  //         count: matches.length,
+  //       };
+  //     })
+  //     .sort((a, b) => b.count - a.count);
+  // }
+
+  getLocations() {
+    const locs = new Map<
+      string,
+      Employer["locations"][0] & { count: number }
+    >();
 
     this.programs.forEach((program) => {
-      if (program.location) {
-        locs.add(program.location);
-      }
+      program.locations.forEach((loc) => {
+        const obj = locs.get(loc.label);
+        if (obj) {
+          locs.set(loc.label, {
+            ...obj,
+            count: obj.count + 1,
+          });
+        } else {
+          locs.set(loc.label, {
+            ...loc,
+            count: 1,
+          });
+        }
+      });
     });
-
-    return [...locs]
-      .map((loc) => {
-        const matches = this.programs.filter(
-          (program) => program.location === loc
-        );
-        return {
-          name: loc,
-          slug: slugify(loc),
-          count: matches.length,
-        };
-      })
-      .sort((a, b) => b.count - a.count);
+    return Array.from(locs.values()).sort((a, b) => b.count - a.count);
   }
 
   get curriculumFocusAreas() {
@@ -251,13 +276,15 @@ export class Programs {
 
   filterByLocation(locationSlug: string) {
     const programs = this.programs
-      .filter((program) => program.locationSlug === locationSlug)
+      .filter((program) =>
+        program.locations.map((l) => l.slug).includes(locationSlug)
+      )
       .map((p) => p.data);
-    const title = this.locations.find((l) => {
+    const title = this.getLocations().find((l) => {
       return l.slug === locationSlug;
     });
 
-    return new Programs(programs, title?.name);
+    return new Programs(programs, title?.label);
   }
 
   getProgram(slug: string) {
@@ -267,6 +294,6 @@ export class Programs {
 
 export type CurriculumDisplay = ReturnType<Programs["getCurriculumDisplay"]>[0];
 
-export type LocationDisplay = Programs["locations"][0];
+export type LocationDisplay = ReturnType<Programs["getLocations"]>[0];
 
 // export type AgeDisplay = ReturnType<Programs["getAgeDisplay"]>[0];

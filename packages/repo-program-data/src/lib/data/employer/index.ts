@@ -2,6 +2,24 @@ import { Calculator } from "lucide-react";
 import { slugify } from "../../utils/slugify";
 import type { ResponseType } from "../types";
 
+const splitter = <T>(data: T, key: keyof T, delimiter = ","): string[] => {
+  const o = data[key];
+  if (!o) return [];
+  if (typeof o === "string") {
+    return o.split(delimiter).map((h: string) => h.trim());
+  }
+  return [];
+};
+
+const mapLabel = (labels: string[]) => {
+  return labels.map((label) => {
+    return {
+      label,
+      slug: slugify(label),
+    };
+  });
+};
+
 export class Employer {
   data: ResponseType["data"][0];
   name: string;
@@ -14,12 +32,14 @@ export class Employer {
   slug: string;
   overview: string | undefined;
   hiringForString: string | undefined;
+  locations: { label: string; slug: string }[];
 
   constructor(data: ResponseType["data"][0]) {
     this.data = data;
     this.name = data.Employer;
     this.slug = slugify(data.Employer);
     this.location = data.Location;
+    this.locations = this.getLocationsDisplay();
     this.zipCode = data["Zip Code"];
     this.categories = this.getCategories();
     this.productOrService = data["Product or service"];
@@ -27,6 +47,13 @@ export class Employer {
     this.website = data.Website;
     this.hiringFor = this.getHiringFor();
     this.hiringForString = data["Hiring For:"];
+  }
+
+  getLocations() {
+    return splitter(this.data, "Location", "&");
+  }
+  getLocationsDisplay() {
+    return mapLabel(this.getLocations());
   }
 
   get locationSlug() {

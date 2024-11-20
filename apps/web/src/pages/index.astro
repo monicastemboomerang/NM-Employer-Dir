@@ -16,11 +16,9 @@ export const something = 134;
 const programs = Programs.instance;
 const categories = programs.getCategories();
 
-const locations = programs.locations.filter(
-  (location) => location.name !== "Statewide"
-);
-
-const ages = [];
+const locations = programs
+  .getLocations()
+  .filter((location) => location.label !== "Statewide");
 
 const curriculumFocusAreas = programs
   .getCurriculumFocusAreaDisplay()
@@ -62,9 +60,13 @@ const curriculumFocusAreas = programs
     </div>
   </GridSectionDisplay>
 
-  {/* Ages */}
-  <GridSectionDisplay title="Browse Ages">
-    <!-- {ages.map((age) => <AgesDisplay age={age} displayCount key={age} />)} -->
+  {/* Locations */}
+  <GridSectionDisplay includeLarge title="Locations">
+    {
+      locations.map((location) => (
+        <LocationCard key={location.slug} location={location} />
+      ))
+    }
   </GridSectionDisplay>
 
   {/* Categories */}
@@ -85,14 +87,6 @@ const curriculumFocusAreas = programs
     </div>
   </GridSectionDisplay>
 
-  {/* Locations */}
-  <GridSectionDisplay includeLarge title="Locations">
-    {
-      locations.map((location) => (
-        <LocationCard key={location.slug} location={location} />
-      ))
-    }
-  </GridSectionDisplay>
   <!-- </main> -->
 
   <!-- <CardWithForm client:load />

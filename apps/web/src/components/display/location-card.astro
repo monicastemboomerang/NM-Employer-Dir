@@ -10,7 +10,7 @@ interface Props {
 }
 
 const { location, displayCount } = Astro.props;
-const { name, slug, count } = location;
+const { label, slug, count } = location;
 ---
 
 <!-- <Button variant="outline" className="h-auto py-4" asChild>
@@ -21,7 +21,7 @@ const { name, slug, count } = location;
 </Button> -->
 <Button className="h-auto py-4" href={`/locations/${slug}`} variant="outline">
   <MapPin className="h-4 w-4 mr-2" />
-  <span class="truncate">{name}</span>
+  <span class="truncate">{label}</span>
   {
     displayCount ? (
       <span class="ml-2 border rounded-sm border-inherit px-1">{count}</span>
