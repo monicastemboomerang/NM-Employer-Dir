@@ -33,7 +33,7 @@ const { title, description, count, icon: Icon, href } = Astro.props;
       <CardDescription>{description}</CardDescription>
     </CardHeader>
     <CardFooter className="flex justify-end items-end h-full">
-      <Button href={href}>View</Button>
+      <Button variant="tertiary" href={href}>View</Button>
       <!-- <a href={`/services/${slug}`}>View</a> -->
     </CardFooter>
   </div>

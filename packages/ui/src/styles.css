@@ -27,6 +27,7 @@
   --font-header: "Placard MT W05 Cond", Roboto, "Helvetica Neue", sans-serif;
   --header: 229 51% 26%;
   --header-foreground: var(--primary-foreground);
+  --tertiary-hover: 30 81% 58%;
 }
 
 .font-header {
@@ -42,6 +43,10 @@ h6 {
   font-family: var(--font-header);
 }
 
+/* .bg-tertiary-hover {
+  background-color: hsl(var(--tertiary-hover));
+} */
+
 @layer base {
   :root {
     --start: hsl(var(--primary));
@@ -55,16 +60,18 @@ h6 {
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 207 88% 41%;
+    --primary: 186 94% 34%;
 
-    --tertiary: 34 100% 65%;
+    --tertiary: 22 71% 50%;
+    --tertiary-foreground: 0 0% 100% / 87%;
+
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    /* --accent: 186 50% 84%; */
-    --accent: 186 94% 34%;
+    --accent: 186 50% 84%;
+    /* --accent: 186 94% 34%; */
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -80,7 +87,7 @@ h6 {
     --sidebar-background: 0 0% 98%;
     /* --sidebar-background: 229 51% 26%; */
     --sidebar-background: 186 50% 100%;
-    --sidebar-foreground: var(--accent);
+    --sidebar-foreground: var(--primary);
     --sidebar-primary: 240 5.9% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
@@ -123,6 +130,8 @@ h6 {
     --primary-foreground: 222.2 47.4% 11.2%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
+    --tertiary: 22 71% 50%;
+    --tertiary-foreground: 0 0% 100% / 87%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
     --accent: 217.2 32.6% 17.5%;
@@ -146,6 +155,13 @@ h6 {
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+}
+
+.section-light-1 {
+  background-size: cover;
+  background-position-x: center;
+
+  background-image: url(https://www.boomerang-nm.com/images/backgrounds/wizard-01.png);
 }
 
 /* .bg-hexagons :first-of-type {

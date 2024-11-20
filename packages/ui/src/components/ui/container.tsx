@@ -15,8 +15,8 @@ const containerVariants = cva("container mx-auto", {
   variants: {
     bg: {
       default: "",
-      header: "bg-header",
-      accent: "bg-accent text-accent-foreground",
+      header: "bg-primary",
+      accent: "bg-primary text-accent-foreground",
     },
     image: {
       default: "",
@@ -81,16 +81,16 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>(
     ref
   ) => {
     const Comp = asChild ? Slot : "div";
-    if (image) {
-      return (
-        <ScrollContainer
-          bg={bg}
-          className={className || rawClass}
-          image={image}
-          {...props}
-        />
-      );
-    }
+    // if (image) {
+    //   return (
+    //     <ScrollContainer
+    //       bg={bg}
+    //       className={className || rawClass}
+    //       image={image}
+    //       {...props}
+    //     />
+    //   );
+    // }
     return (
       <Comp
         className={cn(

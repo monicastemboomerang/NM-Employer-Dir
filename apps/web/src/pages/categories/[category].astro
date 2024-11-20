@@ -8,21 +8,21 @@ const p = Programs.instance;
 export function getStaticPaths() {
   const programs = Programs.instance;
 
-  const ages = programs.getAgeDisplay();
-  return ages.map((a) => {
+  const areas = programs.getCategories();
+  return areas.map((a) => {
     return {
-      params: { age: a.slug },
+      params: { category: a.slug },
     };
   });
 }
 
-const { age: ageSlug } = Astro.params;
+const { category: areaSlug } = Astro.params;
 
-const age = p.getAgeDisplay().find((a) => a.slug === ageSlug);
+const area = p.getCategories().find((a) => a.slug === areaSlug);
 
-const programs = p.filterByAge(ageSlug);
+const programs = p.filterByCategory(areaSlug);
 ---
 
-<TableLayout title={age?.label || ""}>
+<TableLayout title={area?.label || ""}>
   <ProgramsDataTable client:load programs={programs.programs} />
 </TableLayout>

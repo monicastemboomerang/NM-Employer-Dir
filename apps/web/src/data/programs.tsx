@@ -19,11 +19,11 @@ const columns: ColumnDef<Program, unknown>[] = [
 
     enableSorting: true,
   },
-  {
-    accessorKey: "by",
-    header: "Organization",
-    enableSorting: true,
-  },
+  // {
+  //   accessorKey: "by",
+  //   header: "Organization",
+  //   enableSorting: true,
+  // },
   {
     accessorKey: "overview",
     header: "Overview",
@@ -40,36 +40,36 @@ const columns: ColumnDef<Program, unknown>[] = [
     },
   },
   {
-    accessorKey: "ages",
-    header: "Ages",
+    accessorKey: "categories",
+    header: "Industry Categories",
     cell: ({ row }) => {
-      const value = row.getValue<string[]>("ages");
+      const value = row.getValue<string[]>("categories");
       return <BadgeDisplay value={value} />;
     },
     filterFn: "arrIncludesSome",
     enableColumnFilter: true,
   },
-  {
-    accessorKey: "curriculumTypes",
-    header: "Curriculum Types",
-    filterFn: "arrIncludesSome",
-    enableColumnFilter: true,
-    cell: ({ row }) => {
-      const value = row.getValue<string[]>("curriculumTypes");
-      return <BadgeDisplay value={value} />;
-    },
-  },
+  // {
+  //   accessorKey: "curriculumTypes",
+  //   header: "Curriculum Types",
+  //   filterFn: "arrIncludesSome",
+  //   enableColumnFilter: true,
+  //   cell: ({ row }) => {
+  //     const value = row.getValue<string[]>("curriculumTypes");
+  //     return <BadgeDisplay value={value} />;
+  //   },
+  // },
 
-  {
-    accessorKey: "curriculumFocusAreas",
-    header: "Curriculums",
-    filterFn: "arrIncludesSome",
-    enableColumnFilter: true,
-    cell: ({ row }) => {
-      const value = row.getValue<string[]>("curriculumFocusAreas");
-      return <BadgeDisplay value={value} />;
-    },
-  },
+  // {
+  //   accessorKey: "curriculumFocusAreas",
+  //   header: "Curriculums",
+  //   filterFn: "arrIncludesSome",
+  //   enableColumnFilter: true,
+  //   cell: ({ row }) => {
+  //     const value = row.getValue<string[]>("curriculumFocusAreas");
+  //     return <BadgeDisplay value={value} />;
+  //   },
+  // },
 
   {
     accessorKey: "location",

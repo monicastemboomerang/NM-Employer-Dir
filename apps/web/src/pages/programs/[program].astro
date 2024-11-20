@@ -27,9 +27,10 @@ if (program?.location) {
 <TableLayout title={program?.name || ""}>
   <div class="flex flex-col space-y-4">
     <ProgramSection description={program?.overview} title="Overview" />
+    <ProgramSection description={program?.hiringForString} title="Hiring For" />
     <ProgramSection link={program?.website} title="Website" />
     <ProgramSection tags={locations} title="Location" />
-    <ProgramSection tags={program?.ages} title="Age" />
+    <ProgramSection tags={program?.categories} title="Industry Category" />
     <ProgramSection description={program?.by} inline title="Organization" />
     <ProgramSection tags={program?.curriculumTypes} title="Curriculum Types" />
     <ProgramSection tags={program?.curriculumFocusAreas} title="Focus" />

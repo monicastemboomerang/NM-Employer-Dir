@@ -1,6 +1,6 @@
 ---
 import type { LocationDisplay } from "@repo/program-data";
-import { Badge, Button } from "@repo/ui";
+import { Button } from "@repo/ui";
 import { MapPin } from "lucide-react";
 
 interface Props {
@@ -24,9 +24,11 @@ const { name, slug, count } = location;
   <span class="truncate">{name}</span>
   {
     displayCount ? (
-      <Badge className="ml-2" variant="outline">
-        {count}
-      </Badge>
+      <span class="ml-2 border rounded-sm border-inherit px-1">{count}</span>
     ) : null
   }
 </Button>
+
+<!-- <Badge className="ml-2" variant="outline">
+     {count}
+   </Badge> -->

@@ -1,19 +1,19 @@
-import type { Program } from "@repo/program-data";
+import type { Employer } from "@repo/program-data";
 import { Programs } from "@repo/program-data";
 import type { SearchResult } from "minisearch";
 import MiniSearch from "minisearch";
 
-type SearchType = Program & {
+type SearchType = Employer & {
   //   id: string;
 };
 
 export type ProgramSearchResult = SearchResult &
-  Pick<Program, "name" | "slug" | "ages">;
+  Pick<Employer, "name" | "slug" | "categories">;
 
 export class Search {
   miniSearch: MiniSearch<SearchType>;
   static #instance: Search;
-  private constructor(programs: Program[]) {
+  private constructor(programs: Employer[]) {
     const miniSearch = new MiniSearch<SearchType>({
       fields: ["name", "overview", "ages", "curriculumTypes", "location", "by"],
       storeFields: ["name", "slug", "ages", "by"],
@@ -47,7 +47,7 @@ export class Search {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- Needed for singleton
     if (!this.#instance) {
       const p = Programs.instance;
-      const programs: Program[] = p.programs.map((prog) => ({
+      const programs: Employer[] = p.programs.map((prog) => ({
         ...prog,
         id: prog.slug,
         // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Needed

@@ -288,7 +288,7 @@ const SidebarTrigger = React.forwardRef<
   return (
     <Button
       className={cn(
-        "h-7 w-7 bg-sidebar text-sidebar-foreground rounded-none rounded-tr-md rounded-br-md border-r border-t border-b border-slate-700",
+        "h-7 w-7 bg-sidebar text-sidebar-foreground rounded-none rounded-tr-md rounded-br-md border-r border-t border-b border-primary",
         className
       )}
       data-sidebar="trigger"

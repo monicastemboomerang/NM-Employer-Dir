@@ -5,7 +5,6 @@ import BaseLayout from "../components/layouts/base-layout.astro";
 // Component Imports
 // import "@repo/ui/dist/index.css";
 // import "../styles/globals.css";
-import AgesDisplay from "../components/display/ages-display.astro";
 import CardDisplay from "../components/display/card-display.astro";
 import GridSectionDisplay from "../components/display/grid-section.astro";
 import HeaderSection from "../components/display/header-section.astro";
@@ -15,13 +14,13 @@ import { SITE_INFO } from "../utils";
 
 export const something = 134;
 const programs = Programs.instance;
-const curriculumTypes = programs.getCurriculumDisplay();
+const categories = programs.getCategories();
 
 const locations = programs.locations.filter(
   (location) => location.name !== "Statewide"
 );
 
-const ages = programs.getAgeDisplay();
+const ages = [];
 
 const curriculumFocusAreas = programs
   .getCurriculumFocusAreaDisplay()
@@ -61,22 +60,22 @@ const curriculumFocusAreas = programs
       ))
     }
     <div class="flex justify-end" slot="after-grid">
-      <Button href="/programs" variant="outline-primary">View All</Button>
+      <Button href="/programs" variant="outline-secondary">View All</Button>
     </div>
   </GridSectionDisplay>
 
   {/* Ages */}
-  <GridSectionDisplay bgImage="light-1" title="Browse Ages">
-    {ages.map((age) => <AgesDisplay age={age} displayCount key={age} />)}
+  <GridSectionDisplay title="Browse Ages">
+    <!-- {ages.map((age) => <AgesDisplay age={age} displayCount key={age} />)} -->
   </GridSectionDisplay>
 
   {/* Categories */}
   <GridSectionDisplay bg title="Browse Services">
     {
-      curriculumTypes.map((service) => (
+      categories.map((service) => (
         <CardDisplay
           count={service.count}
-          href={`/services/${service.slug}`}
+          href={`/categories/${service.slug}`}
           icon={service.icon}
           key={service.label}
           title={service.label}
@@ -84,12 +83,12 @@ const curriculumFocusAreas = programs
       ))
     }
     <div class="flex justify-end" slot="after-grid">
-      <Button href="/programs" variant="outline-primary">View All</Button>
+      <Button href="/programs" variant="outline-secondary">View All</Button>
     </div>
   </GridSectionDisplay>
 
   {/* Locations */}
-  <GridSectionDisplay bgImage="light-1" includeLarge title="Locations">
+  <GridSectionDisplay includeLarge title="Locations">
     {
       locations.map((location) => (
         <LocationCard key={location.slug} location={location} />

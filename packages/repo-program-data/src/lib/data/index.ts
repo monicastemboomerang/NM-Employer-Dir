@@ -3,108 +3,16 @@ import response from "../../../data.json";
 import { getCurriculumFocusAreaType } from "../curriculum-focus-area";
 import { getCurriculumType } from "../curriculum-type";
 import { slugify } from "../utils/slugify";
-
-type ResponseType = typeof response;
-
-export class Program {
-  data: ResponseType["data"][0];
-  location: string;
-  programSupportMechanisms: string[];
-  ages: string[];
-  by: string | undefined;
-  website?: string;
-  curriculumFocusAreas: string[];
-  curriculumTypes: string[];
-  name: string;
-  locationSlug: string;
-  overview: string | undefined;
-  slug: string;
-
-  constructor(data: ResponseType["data"][0]) {
-    this.data = data;
-    this.name = this.get_name();
-    this.location = this.get_location();
-    this.programSupportMechanisms = this.get_programSupportMechanisms();
-    this.ages = this.get_ages();
-    this.by = this.get_by();
-    this.website = this.get_website();
-    this.curriculumFocusAreas = this.get_curriculumFocusAreas();
-    this.curriculumTypes = this.get_curriculumTypes();
-    this.locationSlug = this.get_locationSlug();
-    this.overview = this.get_overview();
-    this.slug = this.get_slug();
-  }
-
-  private get_slug() {
-    return slugify(this.name);
-  }
-
-  private get_locationSlug() {
-    return slugify(this.location);
-  }
-
-  private get_location() {
-    return this.data.Location;
-  }
-
-  private remove_empty_strings(arr: string[]) {
-    return arr.filter((a) => a !== "");
-  }
-
-  private get_programSupportMechanisms() {
-    return this.remove_empty_strings(
-      this.data["Program Support Mechanisms"].split(", ")
-    );
-  }
-
-  private get_ages() {
-    return this.remove_empty_strings(this.data.Age.split(", "));
-  }
-
-  private get_by() {
-    const by = this.data["Parent Organization"];
-    if (by) {
-      return by;
-    }
-  }
-
-  private get_curriculumTypes() {
-    return this.remove_empty_strings(
-      this.data["Type of Curriculum"].split(", ")
-    );
-  }
-
-  private get_curriculumFocusAreas() {
-    return this.remove_empty_strings(
-      this.data["Curriculum Focus Area "].split(", ")
-    );
-  }
-
-  private get_name() {
-    return this.data["Program Name"];
-  }
-
-  private get_overview() {
-    const overview = this.data.Overview;
-    if (overview) {
-      return overview;
-    }
-  }
-
-  private get_website() {
-    const web = this.data.Website;
-    if (web?.startsWith("http")) {
-      return web;
-    }
-  }
-}
+import type { CategoryDisplay } from "./employer";
+import { Employer } from "./employer";
+import type { ResponseType } from "./types";
 
 export class Programs {
-  programs: Program[];
+  programs: Employer[];
   title: string | undefined;
   constructor(data: ResponseType["data"], title?: string) {
     const programs = data.map((d) => {
-      return new Program(d);
+      return new Employer(d);
     });
 
     this.programs = programs;
@@ -150,20 +58,6 @@ export class Programs {
       .sort((a, b) => b.count - a.count);
   }
 
-  get programSupportMechanisms() {
-    const mechs = new Set<string>();
-
-    this.programs.forEach((program) => {
-      program.programSupportMechanisms.forEach((m) => {
-        if (m) {
-          mechs.add(m);
-        }
-      });
-    });
-
-    return [...mechs];
-  }
-
   get curriculumFocusAreas() {
     const mechs = new Set<string>();
 
@@ -192,7 +86,7 @@ export class Programs {
     return [...mechs];
   }
 
-  getCurriculumFocusAreaDisplay(filter = true) {
+  getCurriculumFocusAreaDisplay(filter = false) {
     const curriculums = new Map<string, number>();
     this.programs.forEach((program) => {
       program.curriculumFocusAreas.forEach((curriculum) => {
@@ -205,7 +99,7 @@ export class Programs {
       });
     });
     return Array.from(curriculums, ([key, value]) => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any -- It's fine for now
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- It's fine for now
       const cType = getCurriculumFocusAreaType(key as any);
 
       return {
@@ -244,7 +138,7 @@ export class Programs {
       });
     });
     return Array.from(curriculums, ([key, value]) => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-explicit-any -- It's fine for now
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- It's fine for now
       const cType = getCurriculumType(key as any);
 
       return {
@@ -270,54 +164,59 @@ export class Programs {
     // return curriculums;
   }
 
-  get ages() {
-    const mechs = new Set<string>();
-
-    this.programs.forEach((program) => {
-      program.ages.forEach((m) => {
-        if (m) {
-          mechs.add(m);
-        }
-      });
-    });
-
-    return [...mechs];
-  }
-
-  getAgeDisplay() {
-    // return this.ages.map((age) => {
-    //   return {
-    //     label: age,
-    //     display: true,
-    //     slug: slugify(age),
-    //   };
-    // });
-    const ages = new Map<string, number>();
-    this.programs.forEach((program) => {
-      program.ages.forEach((age) => {
-        const count = ages.get(age);
-        if (count) {
-          ages.set(age, count + 1);
-        } else {
-          ages.set(age, 1);
-        }
-      });
-    });
-
-    return Array.from(ages, ([key, value]) => {
-      let label = key;
-      if (key === "HS") {
-        label = "High School";
+  getCategories() {
+    const cats = new Map<
+      string,
+      CategoryDisplay & {
+        count: number;
       }
-      return {
-        label,
-        key,
-        display: true,
-        count: value,
-        slug: slugify(key),
-      };
-    }).sort((a, b) => b.count - a.count);
+    >();
+    this.programs.forEach((program) => {
+      program.getCategoryDisplay().forEach((cat) => {
+        const obj = cats.get(cat.label);
+        if (obj) {
+          cats.set(cat.label, {
+            ...obj,
+            count: obj.count + 1,
+          });
+        } else {
+          cats.set(cat.label, {
+            ...cat,
+            count: 1,
+          });
+        }
+      });
+    });
+    return Array.from(cats.values()).sort((a, b) => b.count - a.count);
   }
+
+  filterByCategory(categorySlug: string) {
+    const category = this.getCategories().find((c) => c.slug === categorySlug);
+
+    if (!category) {
+      return new Programs([]);
+    }
+    const programs = this.programs
+      .filter((program) => program.categories.includes(category.label))
+      .map((p) => p.data);
+    const title = category.label;
+
+    return new Programs(programs, title);
+  }
+
+  // filterByAge(ageSlug: string) {
+  //   const age = this.getAgeDisplay().find((a) => a.slug === ageSlug);
+
+  //   if (!age) {
+  //     return new Programs([]);
+  //   }
+  //   const programs = this.programs
+  //     .filter((program) => program.ages.includes(age.key))
+  //     .map((p) => p.data);
+  //   const title = this.ages.find((a) => a === ageSlug);
+
+  //   return new Programs(programs, title);
+  // }
 
   filterByCurriculumFocusArea(curriculumFocusAreaSlug: string) {
     const curriculumFocusArea = this.getCurriculumFocusAreaDisplay(false).find(
@@ -332,20 +231,6 @@ export class Programs {
       )
       .map((p) => p.data);
     const title = curriculumFocusArea.label;
-
-    return new Programs(programs, title);
-  }
-
-  filterByAge(ageSlug: string) {
-    const age = this.getAgeDisplay().find((a) => a.slug === ageSlug);
-
-    if (!age) {
-      return new Programs([]);
-    }
-    const programs = this.programs
-      .filter((program) => program.ages.includes(age.key))
-      .map((p) => p.data);
-    const title = this.ages.find((a) => a === ageSlug);
 
     return new Programs(programs, title);
   }
@@ -384,4 +269,4 @@ export type CurriculumDisplay = ReturnType<Programs["getCurriculumDisplay"]>[0];
 
 export type LocationDisplay = Programs["locations"][0];
 
-export type AgeDisplay = ReturnType<Programs["getAgeDisplay"]>[0];
+// export type AgeDisplay = ReturnType<Programs["getAgeDisplay"]>[0];
