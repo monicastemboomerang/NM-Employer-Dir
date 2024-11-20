@@ -19,14 +19,25 @@ const { header, description, includeBackButton, wrap } = Astro.props;
     <div
       class="text-center flex flex-col justify-center items-center text-primary-foreground"
     >
-      <div class="flex items-center justify-between space-x-4 w-full">
+      <div
+        class="flex items-center justify-between space-x-4 w-full drop-shadow-2xl"
+      >
         {includeBackButton ? <BackButton client:load /> : null}
-        <div class="flex flex-col flex-1 items-center">
+        <div class="flex flex-col flex-1 items-start">
           <div
             class:list={["flex items-center flex-col ", { "max-w-xl": wrap }]}
           >
-            <Heading className="mb-4 "> {header}</Heading>
-            <Text variant="lead">{description}</Text>
+            <Heading
+              className="mb-4"
+              style={{
+                textShadow: "1px 1px 6px rgba(0, 0, 0, .87)",
+              }}
+            >
+              {header}</Heading
+            >
+            <Text className="text-primary-foreground" variant="lead"
+              >{description}</Text
+            >
           </div>
         </div>
       </div>
