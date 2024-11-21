@@ -1,10 +1,14 @@
 name: Unit Tests
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   unit-test:
-    runs-on: ubuntu-latest-large
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3

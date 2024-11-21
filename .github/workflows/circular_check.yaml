@@ -1,16 +1,19 @@
 name: Circular Dep Check
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   circular-dep-check:
-    runs-on: ubuntu-latest-large
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: ./.github/actions/ci-setup
-
 
       - name: Running Circular Dep Check...
         run: pnpm circular
