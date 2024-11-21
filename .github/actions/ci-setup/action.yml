@@ -13,18 +13,19 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Use Node ${{ inputs.node_version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ inputs.node_version }}
-        cache: 'pnpm'
-
     - uses: pnpm/action-setup@v3
       name: Install pnpm
       id: pnpm-install
       with:
         version: ${{ inputs.pnpm_version }}
         run_install: false
+        
+    - name: Use Node ${{ inputs.node_version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node_version }}
+        cache: 'pnpm'
+
 
     - name: Get pnpm store directory
       id: pnpm-cache
