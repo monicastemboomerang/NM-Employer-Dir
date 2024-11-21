@@ -12,6 +12,7 @@
         "!.next/cache/**"
       ]
     },
+    "sync": {},
     "test": {
       "dependsOn": ["^build"]
     },
@@ -23,7 +24,7 @@
     },
     "circular": {},
     "typecheck": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["^build", "sync"]
     },
     "dev": {
       "dependsOn": ["^build"],
@@ -32,9 +33,6 @@
     },
     "clean": {
       "cache": false
-    },
-    "type-check": {
-      "dependsOn": ["^build"]
     }
   }
 }

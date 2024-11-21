@@ -1,6 +1,6 @@
 ---
 import "../../styles/globals.css";
-// eslint-disable-next-line -- unsure why this is being flagged
+
 import { ViewTransitions } from "astro:transitions";
 import { AppSidebar } from "../app-sidebar";
 import Footer from "../display/footer.astro";
@@ -17,7 +17,7 @@ const { title } = Astro.props;
     <meta charset="utf-8" />
     <meta content="width=device-width" name="viewport" />
     <meta content={Astro.generator} name="generator" />
-    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="/favicon.ico?" rel="icon" />
     <link href="/sitemap-index.xml" rel="sitemap" />
     <ViewTransitions />
   </head>
