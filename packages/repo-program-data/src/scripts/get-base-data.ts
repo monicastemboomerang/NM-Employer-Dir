@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars -- Removing count */
 import { writeFileSync } from "node:fs";
 import type { CategoryDisplay } from "../lib";
 import { Programs } from "../lib";
