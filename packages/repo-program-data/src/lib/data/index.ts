@@ -124,7 +124,7 @@ export class Programs {
       });
     });
     return Array.from(curriculums, ([key, value]) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- It's fine for now
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument -- It's fine for now
       const cType = getCurriculumFocusAreaType(key as any);
 
       return {
@@ -163,7 +163,7 @@ export class Programs {
       });
     });
     return Array.from(curriculums, ([key, value]) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any -- It's fine for now
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument -- It's fine for now
       const cType = getCurriculumType(key as any);
 
       return {

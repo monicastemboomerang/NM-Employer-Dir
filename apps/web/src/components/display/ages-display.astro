@@ -14,17 +14,15 @@ const { label, slug, count } = age;
 ---
 
 <Button
-  href={`/ages/${slug}`}
   className="justify-between h-auto py-4"
+  href={`/ages/${slug}`}
   variant="outline"
 >
   <User />
   {label}
   {
-    displayCount && (
-      <Badge variant="inherit" className="ml-2">
+    displayCount ? <Badge className="ml-2" variant="inherit">
         {count}
-      </Badge>
-    )
+      </Badge> : null
   }
 </Button>

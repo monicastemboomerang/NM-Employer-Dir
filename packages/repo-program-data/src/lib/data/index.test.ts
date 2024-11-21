@@ -1,6 +1,6 @@
-import { Programs } from ".";
 import { CurriculumFocusAreas } from "../curriculum-focus-area";
 import { CurriculumTypes } from "../curriculum-type";
+import { Programs } from ".";
 
 describe("Data", () => {
   test("should handle data", () => {

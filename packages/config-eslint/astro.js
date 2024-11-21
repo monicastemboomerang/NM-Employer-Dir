@@ -28,6 +28,15 @@ module.exports = {
         "astro/no-conflict-set-directives": "error",
         "astro/no-unused-define-vars-in-style": "error",
         "react/no-unknown-property": "off",
+        "import/no-unresolved": [
+          "error",
+          {
+            ignore: [
+              //
+              "astro:*",
+            ],
+          },
+        ],
 
         // override/add rules settings here, such as:
         // "astro/no-set-html-directive": "error"

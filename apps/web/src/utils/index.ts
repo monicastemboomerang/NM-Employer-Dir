@@ -7,7 +7,14 @@ export const SITE_INFO = {
   description: "A directory of STEM programs and services in New Mexico.", // Discover local resources for Science, Technology, Engineering, and Mathematics
 };
 
-export const mainLinks = [
+export const mainLinks: {
+  label: string;
+  url: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Temp
+  icon?: any;
+  footer?: boolean;
+  // props?: Record<string, any>;
+}[] = [
   { label: "Home", url: "/", icon: HomeIcon },
   { label: "About", url: "/about", icon: InfoIcon },
   { label: "Locations", url: "/locations", icon: LocationIcon },
