@@ -1,26 +1,23 @@
-import { HomeIcon, LocationIcon, ProgramsIcon } from "@repo/ui";
+import { HomeIcon, InfoIcon, LocationIcon, ProgramsIcon } from "@repo/ui";
 import { PlusIcon } from "lucide-react";
 
 export const SITE_INFO = {
-  title: "NM STEM",
-  longTitle: "New Mexico STEM Services Directory",
+  title: "NM STEM Employer Directory",
+  longTitle: "New Mexico STEM Employer Directory",
   description: "A directory of STEM programs and services in New Mexico.", // Discover local resources for Science, Technology, Engineering, and Mathematics
 };
 
 export const mainLinks = [
   { label: "Home", url: "/", icon: HomeIcon },
+  { label: "About", url: "/about", icon: InfoIcon },
   { label: "Locations", url: "/locations", icon: LocationIcon },
   { label: "Programs", url: "/programs", icon: ProgramsIcon },
-  // { label: "About", url: "/about", icon: InfoIcon },
+
   {
     label: "Add Program",
     icon: PlusIcon,
     footer: true,
     url: "https://docs.google.com/forms/d/e/1FAIpQLSdkvgDORXKeEiPs0kvhnPKs5eLnOvfp3sMqdDgnhy0xTwveQw/viewform",
-  },
-  {
-    label: "Contact",
-    url: "mailto:contact-project+alexwine36-nm-stem-services-62915309-issue-@incoming.gitlab.com",
   },
 ];
 

@@ -1,15 +1,23 @@
 // @ts-check
+import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import sentry from "@sentry/astro";
 import { defineConfig } from "astro/config";
+
 // https://astro.build/config
 // @ts-ignore
 export default defineConfig({
   site: "https://nm-stem-services-f5e2ca.gitlab.io/",
   // Enable React to support React JSX components.
+  markdown: {
+    syntaxHighlight: "prism",
+    // remarkPlugins: [remarkPlugin1],
+    gfm: true,
+  },
   integrations: [
+    mdx(),
     react(),
     tailwind({
       applyBaseStyles: false,

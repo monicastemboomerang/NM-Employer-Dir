@@ -17,18 +17,16 @@ const { header, description, includeBackButton, wrap } = Astro.props;
 <Container bg="header" className="px-4 py-24" client:visible image="light-1">
   <header>
     <div
-      class="text-center flex flex-col justify-center items-center text-primary-foreground"
+      class="flex flex-col justify-center items-center text-primary-foreground"
     >
       <div
         class="flex items-center justify-between space-x-4 w-full drop-shadow-2xl"
       >
         {includeBackButton ? <BackButton client:load /> : null}
         <div class="flex flex-col flex-1 items-start">
-          <div
-            class:list={["flex items-center flex-col ", { "max-w-xl": wrap }]}
-          >
+          <div class:list={["flex  flex-col ", { "max-w-xl": wrap }]}>
             <Heading
-              className="mb-4"
+              className="mb-4 max-w-prose"
               style={{
                 textShadow: "1px 1px 6px rgba(0, 0, 0, .87)",
               }}

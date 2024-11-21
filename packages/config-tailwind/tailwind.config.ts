@@ -1,7 +1,7 @@
+import typography from "@tailwindcss/typography";
 import type { Config } from "tailwindcss";
 import animate from "tailwindcss-animate";
 import { fontFamily } from "tailwindcss/defaultTheme";
-
 // We want each package to be responsible for its own content.
 const config: Omit<Config, "content"> = {
   darkMode: ["class"],
@@ -93,6 +93,6 @@ const config: Omit<Config, "content"> = {
       },
     },
   },
-  plugins: [animate],
+  plugins: [animate, typography],
 };
 export default config;

@@ -1,19 +1,27 @@
 ---
-import { DatabaseProvider } from "@repo/storage";
+import { Container } from "@repo/ui";
+import { getEntry } from "astro:content";
 import BaseLayout from "../components/layouts/base-layout.astro";
 // Component Imports
 // import "@repo/ui/dist/index.css";
-import { ProgramsDataTable } from "../data/programs";
+import HeaderSection from "../components/display/header-section.astro";
+import Prose from "../components/prose.astro";
 
-export const something = 134;
+const entry = await getEntry("pages", "about");
+const { Content, remarkPluginFrontmatter } = await entry.render();
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
 ---
 
 <BaseLayout title="About">
-  <h1>About Page</h1>
-  <DatabaseProvider>
-    <ProgramsDataTable client:load />
-  </DatabaseProvider>
+  <HeaderSection
+    description={remarkPluginFrontmatter.description}
+    header={remarkPluginFrontmatter.title}
+  />
+  <Container className="mt-4">
+    <Prose>
+      <Content />
+    </Prose>
+  </Container>
 </BaseLayout>

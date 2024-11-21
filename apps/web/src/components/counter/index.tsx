@@ -1,3 +1,4 @@
+import { Button } from "@repo/ui";
 import { useState } from "react";
 import "./index.css";
 
@@ -5,7 +6,7 @@ export const SOMETHING = "12";
 
 export default function Counter({
   children,
-  count: initialCount,
+  count: initialCount = 0,
 }: {
   children: JSX.Element;
   count: number;
@@ -21,13 +22,13 @@ export default function Counter({
   return (
     <>
       <div className="counter">
-        <button onClick={subtract} type="button">
+        <Button onClick={subtract} type="button">
           -
-        </button>
-        <pre>{count}</pre>
-        <button onClick={add} type="button">
+        </Button>
+        <pre className="text-primary-foreground">{count}</pre>
+        <Button onClick={add} type="button">
           +
-        </button>
+        </Button>
       </div>
       <div className="counter-message">{children}</div>
     </>
