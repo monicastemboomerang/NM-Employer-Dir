@@ -18,6 +18,7 @@ const { title } = Astro.props;
     <meta content="width=device-width" name="viewport" />
     <meta content={Astro.generator} name="generator" />
     <link href="/favicon.ico?" rel="icon" />
+
     <link href="/sitemap-index.xml" rel="sitemap" />
     <ViewTransitions />
   </head>
@@ -48,6 +49,10 @@ const { title } = Astro.props;
         });
       }
     </script>
+
+    <style is:global>
+      @import url("https://unpkg.com/lucide-static/font/lucide.css");
+    </style>
     <!-- <NavBar
       client:load
       logo="/favicon.svg"

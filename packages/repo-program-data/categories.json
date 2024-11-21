@@ -1,0 +1,74 @@
+{
+  "technology": {
+    "label": "Technology",
+    "slug": "technology",
+    "icon": "cpu",
+    "display": true
+  },
+  "life-sciences": {
+    "label": "Life Sciences",
+    "slug": "life-sciences",
+    "icon": "binoculars",
+    "display": true
+  },
+  "aerospace-defense": {
+    "label": "Aerospace + Defense",
+    "slug": "aerospace-defense",
+    "icon": "satellite",
+    "display": true
+  },
+  "manufacturing": {
+    "label": "Manufacturing",
+    "slug": "manufacturing",
+    "icon": "factory",
+    "display": true
+  },
+  "energy": {
+    "label": "Energy",
+    "slug": "energy",
+    "icon": "house-plug",
+    "display": true
+  },
+  "engineering-construction": {
+    "label": "Engineering + Construction",
+    "slug": "engineering-construction",
+    "icon": "construction",
+    "display": true
+  },
+  "telecommunications": {
+    "label": "Telecommunications",
+    "slug": "telecommunications",
+    "icon": "phone",
+    "display": true
+  },
+  "education-non-profit": {
+    "label": "Education/non-profit",
+    "slug": "education-non-profit",
+    "icon": "graduation-cap",
+    "display": true
+  },
+  "semiconductor": {
+    "label": "Semiconductor",
+    "slug": "semiconductor",
+    "icon": "memory-stick",
+    "display": true
+  },
+  "venture-capital": {
+    "label": "Venture Capital",
+    "slug": "venture-capital",
+    "icon": "landmark",
+    "display": true
+  },
+  "clean-energyenvironmental": {
+    "label": "Clean Energy/Environmental",
+    "slug": "clean-energyenvironmental",
+    "icon": "leaf",
+    "display": true
+  },
+  "educationnon-profit": {
+    "label": "Education/non-profit",
+    "slug": "education-non-profit",
+    "icon": "graduation-cap",
+    "display": true
+  }
+}

@@ -40,6 +40,17 @@ const columns: ColumnDef<Employer, unknown>[] = [
     },
   },
   {
+    accessorKey: "hiringFor",
+    header: "Hiring For",
+    cell: ({ row }) => {
+      const value = row.getValue<string[]>("hiringFor");
+      // .map((v) => v.label);
+      return <BadgeDisplay value={value} />;
+    },
+    filterFn: "arrIncludesSome",
+    enableColumnFilter: true,
+  },
+  {
     accessorKey: "categories",
     header: "Industry Categories",
     cell: ({ row }) => {
@@ -49,31 +60,18 @@ const columns: ColumnDef<Employer, unknown>[] = [
     filterFn: "arrIncludesSome",
     enableColumnFilter: true,
   },
-  // {
-  //   accessorKey: "curriculumTypes",
-  //   header: "Curriculum Types",
-  //   filterFn: "arrIncludesSome",
-  //   enableColumnFilter: true,
-  //   cell: ({ row }) => {
-  //     const value = row.getValue<string[]>("curriculumTypes");
-  //     return <BadgeDisplay value={value} />;
-  //   },
-  // },
-
-  // {
-  //   accessorKey: "curriculumFocusAreas",
-  //   header: "Curriculums",
-  //   filterFn: "arrIncludesSome",
-  //   enableColumnFilter: true,
-  //   cell: ({ row }) => {
-  //     const value = row.getValue<string[]>("curriculumFocusAreas");
-  //     return <BadgeDisplay value={value} />;
-  //   },
-  // },
 
   {
-    accessorKey: "location",
+    accessorKey: "locationsString",
     header: "Location",
+    cell: ({ row }) => {
+      const value = row.getValue<string[]>("locationsString");
+
+      return <BadgeDisplay value={value} />;
+    },
+
+    enableColumnFilter: true,
+    filterFn: "arrIncludesSome",
   },
   {
     accessorKey: "slug",

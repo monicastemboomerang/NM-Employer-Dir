@@ -1,5 +1,5 @@
-import { Calculator } from "lucide-react";
 import { slugify } from "../../utils/slugify";
+import { rawCategoryData, rawHiringForData } from "../raw-data";
 import type { ResponseType } from "../types";
 
 const splitter = <T>(data: T, key: keyof T, delimiter = ","): string[] => {
@@ -20,6 +20,52 @@ const mapLabel = (labels: string[]) => {
   });
 };
 
+export const mapLabelDisplay = (
+  names: string[],
+  data: Record<string, LabeledData>,
+  filter = false
+) => {
+  return names.reduce<LabeledData[]>((acc, name) => {
+    const slug = slugify(name);
+    const slugs = acc.map((a) => a.slug);
+    let prevLabel: Partial<LabeledData> = {};
+    if (slug in data) {
+      prevLabel = data[slug];
+      if (prevLabel.parent && prevLabel.parent in data) {
+        const parent = mapLabelDisplay([prevLabel.parent], data, filter);
+        parent.forEach((p) => {
+          if (!slugs.includes(p.slug)) {
+            acc.push(p);
+          }
+        });
+      }
+      if (filter && prevLabel.display === false) {
+        return acc;
+      }
+    }
+
+    if (!slugs.includes(slug)) {
+      acc.push({
+        label: name,
+        slug,
+        icon: "",
+        display: true,
+        ...prevLabel,
+      });
+    }
+
+    return acc;
+  }, []);
+};
+
+export interface LabeledData {
+  label: string;
+  slug: string;
+  icon: string;
+  display?: boolean;
+  parent?: string;
+}
+
 export class Employer {
   data: ResponseType["data"][0];
   name: string;
@@ -33,6 +79,8 @@ export class Employer {
   overview: string | undefined;
   hiringForString: string | undefined;
   locations: { label: string; slug: string }[];
+  hiringForDisplay: LabeledData[];
+  locationsString: string[];
 
   constructor(data: ResponseType["data"][0]) {
     this.data = data;
@@ -40,13 +88,15 @@ export class Employer {
     this.slug = slugify(data.Employer);
     this.location = data.Location;
     this.locations = this.getLocationsDisplay();
+    this.locationsString = this.locations.map((l) => l.label);
     this.zipCode = data["Zip Code"];
     this.categories = this.getCategories();
     this.productOrService = data["Product or service"];
     this.overview = this.productOrService;
     this.website = data.Website;
-    this.hiringFor = this.getHiringFor();
+    this.hiringFor = this.getHiringForDisplay(true).map((h) => h.label);
     this.hiringForString = data["Hiring For:"];
+    this.hiringForDisplay = this.getHiringForDisplay(true);
   }
 
   getLocations() {
@@ -60,15 +110,32 @@ export class Employer {
     return slugify(this.location || "nm");
   }
 
-  getCategoryDisplay() {
-    return this.categories.map((cat) => {
-      return {
-        label: cat,
-        // display: true,
-        slug: slugify(cat),
-        icon: Calculator,
-      };
-    });
+  // getCategoryDisplay(filter = false): LabeledData[] {
+  //   return this.categories
+  //     .map((cat) => {
+  //       const slug = slugify(cat);
+  //       let prevCat: Partial<LabeledData> = {};
+  //       if (slug in rawCategoryData) {
+  //         prevCat = rawCategoryData[slug as keyof typeof rawCategoryData];
+  //       }
+  //       return {
+  //         label: cat,
+  //         slug: slugify(cat),
+  //         icon: "",
+  //         display: true,
+  //         ...prevCat,
+  //       };
+  //     })
+  //     .filter((c) => {
+  //       if (filter) {
+  //         return c.display;
+  //       }
+  //       return true;
+  //     });
+  // }
+
+  getCategoryDisplay(filter = false) {
+    return mapLabelDisplay(this.categories, rawCategoryData, filter);
   }
 
   getCategories() {
@@ -81,6 +148,43 @@ export class Employer {
     }
     return cats;
   }
+
+  getHiringForDisplay(filter = false) {
+    return mapLabelDisplay(this.getHiringFor(), rawHiringForData, filter);
+  }
+  // getHiringForDisplay(filter = false) {
+  //   return this.getHiringFor()
+  //     .map((h) => {
+  //       const slug = slugify(h);
+  //       let prevHiringFor: Partial<LabeledData> = {};
+  //       if (slug in rawHiringForData) {
+  //         prevHiringFor =
+  //           rawHiringForData[slug as keyof typeof rawHiringForData];
+  //         if (
+  //           prevHiringFor.parent &&
+  //           prevHiringFor.parent in rawHiringForData
+  //         ) {
+  //           prevHiringFor =
+  //             rawHiringForData[
+  //               prevHiringFor.parent as keyof typeof rawHiringForData
+  //             ];
+  //         }
+  //       }
+  //       return {
+  //         label: h,
+  //         slug,
+  //         icon: "",
+  //         display: true,
+  //         ...prevHiringFor,
+  //       };
+  //     })
+  //     .filter((h) => {
+  //       if (filter) {
+  //         return h.display;
+  //       }
+  //       return true;
+  //     });
+  // }
 
   getHiringFor() {
     const vals =

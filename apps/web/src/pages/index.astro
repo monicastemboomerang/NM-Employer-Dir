@@ -14,14 +14,14 @@ import { SITE_INFO } from "../utils";
 
 export const something = 134;
 const programs = Programs.instance;
-const categories = programs.getCategories();
+const categories = programs.getCategories(true).filter((_, i) => i < 10);
 
 const locations = programs
   .getLocations()
   .filter((location) => location.label !== "Statewide");
 
 const curriculumFocusAreas = programs
-  .getCurriculumFocusAreaDisplay()
+  .getHiringFors(true)
   .filter((_, i) => i < 6);
 
 // Full Astro Component Syntax:
@@ -43,12 +43,12 @@ const curriculumFocusAreas = programs
   <!-- <main class="container mx-auto px-4 py-12"> -->
 
   {/* Curriculums */}
-  <GridSectionDisplay bg title="Browse Curriculums">
+  <GridSectionDisplay bg title="Hiring For">
     {
       curriculumFocusAreas.map((service) => (
         <CardDisplay
           count={service.count}
-          href={`/curriculums/${service.slug}`}
+          href={`/hiring-for/${service.slug}`}
           icon={service.icon}
           key={service.label}
           title={service.label}
@@ -70,7 +70,7 @@ const curriculumFocusAreas = programs
   </GridSectionDisplay>
 
   {/* Categories */}
-  <GridSectionDisplay bg title="Browse Services">
+  <GridSectionDisplay bg title="Browse Industries">
     {
       categories.map((service) => (
         <CardDisplay

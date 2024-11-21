@@ -1,11 +1,3 @@
-import {
-  ArrowDownIcon,
-  ArrowUpIcon,
-  CaretSortIcon,
-  DotsVerticalIcon,
-  EyeNoneIcon,
-} from "@radix-ui/react-icons";
-import { flexRender } from "@tanstack/react-table";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -16,6 +8,14 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/utils";
+import {
+  ArrowDownIcon,
+  ArrowUpIcon,
+  CaretSortIcon,
+  DotsVerticalIcon,
+  EyeNoneIcon,
+} from "@radix-ui/react-icons";
+import { flexRender } from "@tanstack/react-table";
 import type { Column, Header } from "./types";
 
 interface DataTableColumnHeaderProps<TData, TValue>
@@ -167,7 +167,7 @@ function Filter<TData, TValue>({
           <DotsVerticalIcon />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent className="max-h-screen overflow-scroll">
         {facets.map((facet) => (
           <DropdownMenuCheckboxItem
             // checked={showStatusBar}
