@@ -1,4 +1,4 @@
-import { Programs, type Program } from "@repo/program-data";
+import { Programs, type Employer } from "@repo/program-data";
 import type { ColumnDef } from "@repo/ui";
 import {
   Button,
@@ -12,7 +12,7 @@ import {
 import { SquareArrowOutUpRight } from "lucide-react";
 import { BadgeDisplay } from "../components/badge-display";
 
-const columns: ColumnDef<Program, unknown>[] = [
+const columns: ColumnDef<Employer, unknown>[] = [
   {
     accessorKey: "name",
     header: "Name",
@@ -96,7 +96,7 @@ const columns: ColumnDef<Program, unknown>[] = [
   },
 ];
 
-export function ProgramsDataTable({ programs }: { programs?: Program[] }) {
+export function ProgramsDataTable({ programs }: { programs?: Employer[] }) {
   //   const { db, findTodos } = useDatabase();
   //   const [data, setData] = useState<TodoDocType[]>([]);
   //   useEffect(() => {

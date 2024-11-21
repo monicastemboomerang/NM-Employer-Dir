@@ -11,7 +11,8 @@
     "sync": "astro sync",
     "clean": "rm -rf dist",
     "lint": "eslint src/",
-    "type-check": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "circular": "dpdm --no-warning --no-tree --exit-code circular:1 ./src/index.ts"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
