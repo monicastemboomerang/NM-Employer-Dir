@@ -1,31 +1,24 @@
- 
 import { Search } from ".";
 
 describe("Search", () => {
   test("should test autosuggest", () => {
     const searchDb = Search.instance;
 
-    const query = "boomer";
+    const query = "los ala";
 
-    const res = searchDb.search(query);
     const autoSuggest = searchDb.autoSuggest(query);
 
-    console.log("RESULT", res);
-    console.log("AUTO SUGGEST", autoSuggest);
-
-    expect(autoSuggest[0].suggestion).toBe("boomerang");
+    expect(autoSuggest[0].suggestion).toBe("los alamos");
   });
+
   test("should test search", () => {
     const searchDb = Search.instance;
 
-    const query = "boomera";
+    const query = "los alamos";
 
     const res = searchDb.search(query, 0.4);
     // const autoSuggest = searchDb.autoSuggest(query);
 
-    console.log("RESULT", res);
-    // console.log("AUTO SUGGEST", autoSuggest);
-
-    expect(res[0].name).toBe("Boomerang New Mexico");
+    expect(res[0].name).toBe("Los Alamos National Laboratories");
   });
 });
