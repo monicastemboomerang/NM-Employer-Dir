@@ -2,7 +2,9 @@ name: Build
 
 on:
   workflow_run:
-    workflows: ["Typecheck", "Unit Tests", "Circular Dep Check"]
+    workflows:
+      - Typecheck
+      - Unit Tests
     types:
       - completed
     # branches:
