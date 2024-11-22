@@ -1,0 +1,27 @@
+---
+import { Programs } from "@repo/program-data";
+import TableLayout from "../../components/layouts/table-layout.astro";
+import { ProgramsDataTable } from "../../data/programs";
+
+const p = Programs.instance;
+// const locations = programs.locations;
+
+export function getStaticPaths() {
+  const programs = Programs.instance;
+
+  const locations = programs.getLocations();
+  return locations.map((l) => {
+    return {
+      params: { location: l.slug },
+    };
+  });
+}
+
+const { location: locationSlug } = Astro.params;
+
+const program = p.filterByLocation(locationSlug);
+---
+
+<TableLayout title={program.title || ""}>
+  <ProgramsDataTable client:load programs={program.programs} />
+</TableLayout>

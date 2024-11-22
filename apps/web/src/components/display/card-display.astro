@@ -1,0 +1,64 @@
+---
+import type { CategoryDisplay } from "@repo/program-data";
+import {
+  Button,
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@repo/ui";
+
+interface Props {
+  title: string;
+  description?: string;
+  count?: number;
+  icon?: CategoryDisplay["icon"];
+  href?: string;
+  key?: unknown;
+}
+
+const { title, description, count, icon, href } = Astro.props;
+---
+
+<!-- <script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  // import { createIcons, icons } from "lucide";
+
+  lucide.createIcons({ icons });
+</script> --><!-- <script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script> -->
+<Card className="h-auto  text-accent-foreground">
+  <div class="h-full flex flex-col">
+    <CardHeader>
+      <div class="flex items-center justify-between">
+        <div
+          class:list={[
+            "p-2 text-xl  rounded-lg flex justify-center",
+            { border: Boolean(icon) },
+          ]}
+        >
+          {
+            icon ? (
+              <i
+                class={`icon-${icon}`}
+                style={{
+                  lineHeight: 1,
+                }}
+              />
+            ) : null
+          }
+        </div>
+        <span class="text-sm">{count} companies</span>
+      </div>
+      <CardTitle className="mt-4 ">{title}</CardTitle>
+      <CardDescription>{description}</CardDescription>
+    </CardHeader>
+    <CardFooter className="flex justify-end items-end h-full">
+      <Button href={href} variant="tertiary">View</Button>
+      <!-- <a href={`/services/${slug}`}>View</a> -->
+    </CardFooter>
+  </div>
+</Card>

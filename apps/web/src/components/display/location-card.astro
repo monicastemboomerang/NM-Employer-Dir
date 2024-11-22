@@ -1,0 +1,34 @@
+---
+import type { LocationDisplay } from "@repo/program-data";
+import { Button } from "@repo/ui";
+import { MapPin } from "lucide-react";
+
+interface Props {
+  location: LocationDisplay;
+  key?: unknown;
+  displayCount?: boolean;
+}
+
+const { location, displayCount } = Astro.props;
+const { label, slug, count } = location;
+---
+
+<!-- <Button variant="outline" className="h-auto py-4" asChild>
+  <a href={`/locations/${slug}`}>
+    <MapPin className="h-4 w-4 mr-2" />
+    {name}
+  </a>
+</Button> -->
+<Button className="h-auto py-4" href={`/locations/${slug}`} variant="outline">
+  <MapPin className="h-4 w-4 mr-2" />
+  <span class="truncate">{label}</span>
+  {
+    displayCount ? (
+      <span class="ml-2 border rounded-sm border-inherit px-1">{count}</span>
+    ) : null
+  }
+</Button>
+
+<!-- <Badge className="ml-2" variant="outline">
+     {count}
+   </Badge> -->

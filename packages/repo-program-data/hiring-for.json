@@ -1,0 +1,956 @@
+{
+  "program-manager": {
+    "label": "Program Manager",
+    "slug": "program-manager",
+    "icon": "folder-kanban",
+    "display": true
+  },
+  "systems-engineer": {
+    "label": "Systems Engineer",
+    "slug": "systems-engineer",
+    "icon": "monitor-cog",
+    "display": true
+  },
+  "technician": {
+    "label": "Technician",
+    "slug": "technician",
+    "icon": "",
+    "display": false
+  },
+  "engineer": {
+    "label": "Engineer",
+    "slug": "engineer",
+    "icon": "omega",
+    "display": true
+  },
+  "chemist": {
+    "label": "Chemist",
+    "slug": "chemist",
+    "icon": "flask-conical",
+    "display": true
+  },
+  "project-manager": {
+    "label": "Project Manager",
+    "slug": "project-manager",
+    "icon": "",
+    "display": true
+  },
+  "engineers": {
+    "label": "Engineer",
+    "slug": "engineers",
+    "icon": "",
+    "parent": "engineer",
+    "display": false
+  },
+  "we-are-always-interested-in-candidates-for-a-scientific-staff-position-with-prior-experience-in-magnetic-resonance-we-also-intend-to-hire-someone-to-support-the-company-in-an-administrative-role": {
+    "label": "We are always interested in candidates for a scientific staff position with prior experience in magnetic resonance.  We also intend to hire someone to support the company in an administrative role",
+    "slug": "we-are-always-interested-in-candidates-for-a-scientific-staff-position-with-prior-experience-in-magnetic-resonance-we-also-intend-to-hire-someone-to-support-the-company-in-an-administrative-role",
+    "icon": "",
+    "display": false
+  },
+  "they-will-be-helping-to-manage-grants": {
+    "label": "they will be helping to manage grants",
+    "slug": "they-will-be-helping-to-manage-grants",
+    "icon": "",
+    "display": false
+  },
+  "but-will-also-have-opportunities-to-support-lab-work-and-data-management": {
+    "label": "but will also have opportunities to support lab work and data management.",
+    "slug": "but-will-also-have-opportunities-to-support-lab-work-and-data-management",
+    "icon": "",
+    "display": false
+  },
+  "part-evaluators": {
+    "label": "Part Evaluators",
+    "slug": "part-evaluators",
+    "icon": "",
+    "display": true
+  },
+  "machinists": {
+    "label": "Machinists",
+    "slug": "machinists",
+    "icon": "",
+    "display": true
+  },
+  "assembly-mechanics": {
+    "label": "Assembly Mechanics",
+    "slug": "assembly-mechanics",
+    "icon": "",
+    "display": true
+  },
+  "surface-finishers": {
+    "label": "Surface Finishers",
+    "slug": "surface-finishers",
+    "icon": "",
+    "display": true
+  },
+  "teardown-mechanics": {
+    "label": "Teardown Mechanics",
+    "slug": "teardown-mechanics",
+    "icon": "",
+    "display": true
+  },
+  "space-vehicles-specialist": {
+    "label": "Space Vehicles Specialist",
+    "slug": "space-vehicles-specialist",
+    "icon": "",
+    "display": true
+  },
+  "aiml-researcher": {
+    "label": "AI/ML Researcher",
+    "slug": "aiml-researcher",
+    "icon": "",
+    "display": true
+  },
+  "analyst": {
+    "label": "Analyst",
+    "slug": "analyst",
+    "icon": "",
+    "display": true
+  },
+  "technical-advisor": {
+    "label": "Technical Advisor",
+    "slug": "technical-advisor",
+    "icon": "",
+    "display": true
+  },
+  "fabricators": {
+    "label": "Fabricators",
+    "slug": "fabricators",
+    "icon": "",
+    "display": true
+  },
+  "shop-assistants": {
+    "label": "shop assistants",
+    "slug": "shop-assistants",
+    "icon": "",
+    "display": true
+  },
+  "cnc-operators": {
+    "label": "CNC operators",
+    "slug": "cnc-operators",
+    "icon": "",
+    "display": true
+  },
+  "ehs-coordinator": {
+    "label": "EHS Coordinator",
+    "slug": "ehs-coordinator",
+    "icon": "",
+    "display": true
+  },
+  "materials-supervisor": {
+    "label": "Materials Supervisor",
+    "slug": "materials-supervisor",
+    "icon": "",
+    "display": true
+  },
+  "hr-generalist": {
+    "label": "HR Generalist",
+    "slug": "hr-generalist",
+    "icon": "",
+    "display": true
+  },
+  "production-scheduler": {
+    "label": "Production Scheduler",
+    "slug": "production-scheduler",
+    "icon": "",
+    "display": true
+  },
+  "materials-admin": {
+    "label": "Materials Admin",
+    "slug": "materials-admin",
+    "icon": "",
+    "display": true
+  },
+  "assembler": {
+    "label": "Assembler",
+    "slug": "assembler",
+    "icon": "",
+    "display": true
+  },
+  "welder": {
+    "label": "Welder",
+    "slug": "welder",
+    "icon": "",
+    "display": true
+  },
+  "blaster": {
+    "label": "Blaster",
+    "slug": "blaster",
+    "icon": "",
+    "display": true
+  },
+  "painter": {
+    "label": "Painter",
+    "slug": "painter",
+    "icon": "",
+    "display": true
+  },
+  "equiptment-tech": {
+    "label": "Equiptment Tech",
+    "slug": "equiptment-tech",
+    "icon": "",
+    "display": true
+  },
+  "mobile-equiptment-operators": {
+    "label": "Mobile Equiptment Operators",
+    "slug": "mobile-equiptment-operators",
+    "icon": "",
+    "display": true
+  },
+  "qa-inspector": {
+    "label": "QA Inspector",
+    "slug": "qa-inspector",
+    "icon": "",
+    "display": true
+  },
+  "electrical-engineers": {
+    "label": "Electrical engineers",
+    "slug": "electrical-engineers",
+    "icon": "",
+    "display": true
+  },
+  "mechanical-engineers": {
+    "label": "Mechanical Engineers",
+    "slug": "mechanical-engineers",
+    "icon": "",
+    "display": true
+  },
+  "software-developers": {
+    "label": "Software Developers",
+    "slug": "software-developers",
+    "icon": "code-xml",
+    "display": true
+  },
+  "aerospace-engineers": {
+    "label": "Aerospace Engineers",
+    "slug": "aerospace-engineers",
+    "icon": "",
+    "display": true
+  },
+  "ait-engineers-and-technicians": {
+    "label": "AI&T engineers and technicians",
+    "slug": "ait-engineers-and-technicians",
+    "icon": "",
+    "display": true
+  },
+  "program-managers": {
+    "label": "program managers",
+    "slug": "program-managers",
+    "icon": "",
+    "parent": "program-manager",
+    "display": false
+  },
+  "office-admin": {
+    "label": "Office admin",
+    "slug": "office-admin",
+    "icon": "",
+    "display": true
+  },
+  "architectsdesigners": {
+    "label": "architects/designers",
+    "slug": "architectsdesigners",
+    "icon": "",
+    "display": true
+  },
+  "framers": {
+    "label": "framers",
+    "slug": "framers",
+    "icon": "",
+    "display": true
+  },
+  "sales-people": {
+    "label": "sales people",
+    "slug": "sales-people",
+    "icon": "",
+    "display": true
+  },
+  "electrician": {
+    "label": "Electrician",
+    "slug": "electrician",
+    "icon": "",
+    "display": true
+  },
+  "plumber": {
+    "label": "Plumber",
+    "slug": "plumber",
+    "icon": "",
+    "display": true
+  },
+  "carpenter": {
+    "label": "Carpenter",
+    "slug": "carpenter",
+    "icon": "",
+    "display": true
+  },
+  "civil-engineer": {
+    "label": "Civil Engineer",
+    "slug": "civil-engineer",
+    "icon": "",
+    "display": true
+  },
+  "hr-manager": {
+    "label": "HR Manager",
+    "slug": "hr-manager",
+    "icon": "",
+    "display": true
+  },
+  "financial-manager": {
+    "label": "Financial Manager",
+    "slug": "financial-manager",
+    "icon": "",
+    "display": true
+  },
+  "purchasing-manager": {
+    "label": "Purchasing Manager",
+    "slug": "purchasing-manager",
+    "icon": "",
+    "display": true
+  },
+  "mechanics": {
+    "label": "Mechanics",
+    "slug": "mechanics",
+    "icon": "",
+    "display": true
+  },
+  "it": {
+    "label": "IT",
+    "slug": "it",
+    "icon": "",
+    "display": true
+  },
+  "machine-operator-ii-takatori": {
+    "label": "Machine Operator II - Takatori",
+    "slug": "machine-operator-ii-takatori",
+    "icon": "",
+    "parent": "machine-operator",
+    "display": true
+  },
+  "industrial-engineering-intern": {
+    "label": "Industrial Engineering Intern",
+    "slug": "industrial-engineering-intern",
+    "icon": "",
+    "display": true
+  },
+  "ceramic-process-engineering-intern": {
+    "label": "Ceramic Process Engineering Intern",
+    "slug": "ceramic-process-engineering-intern",
+    "icon": "",
+    "display": true
+  },
+  "quality-assurance-manager": {
+    "label": "Quality Assurance Manager",
+    "slug": "quality-assurance-manager",
+    "icon": "",
+    "display": true
+  },
+  "ceramic-engineer": {
+    "label": "Ceramic Engineer",
+    "slug": "ceramic-engineer",
+    "icon": "",
+    "display": true
+  },
+  "manufacturing-supervisor": {
+    "label": "Manufacturing Supervisor",
+    "slug": "manufacturing-supervisor",
+    "icon": "",
+    "display": true
+  },
+  "material-handler": {
+    "label": "Material Handler",
+    "slug": "material-handler",
+    "icon": "",
+    "display": true
+  },
+  "machine-learning-artificial-intelligence": {
+    "label": "Machine Learning & Artificial Intelligence",
+    "slug": "machine-learning-artificial-intelligence",
+    "icon": "",
+    "display": true
+  },
+  "applied-mathematics": {
+    "label": "Applied Mathematics",
+    "slug": "applied-mathematics",
+    "icon": "",
+    "display": true
+  },
+  "data-analytics-visualization": {
+    "label": "Data Analytics & Visualization",
+    "slug": "data-analytics-visualization",
+    "icon": "",
+    "display": true
+  },
+  "code-development-design": {
+    "label": "Code Development & Design",
+    "slug": "code-development-design",
+    "icon": "",
+    "parent": "software-developers",
+    "display": true
+  },
+  "business-administration": {
+    "label": "Business Administration",
+    "slug": "business-administration",
+    "icon": "",
+    "display": true
+  },
+  "general-labor": {
+    "label": "General Labor",
+    "slug": "general-labor",
+    "icon": "",
+    "display": true
+  },
+  "forklift-operator": {
+    "label": "Forklift Operator",
+    "slug": "forklift-operator",
+    "icon": "",
+    "display": true
+  },
+  "clamp-truck-operator": {
+    "label": "Clamp Truck Operator",
+    "slug": "clamp-truck-operator",
+    "icon": "",
+    "display": true
+  },
+  "machine-operator": {
+    "label": "Machine Operator",
+    "slug": "machine-operator",
+    "icon": "cog",
+    "display": true
+  },
+  "forecast-positions-fall-2024-social-marketing-manager-procurement-manager-assemblypackaging-assistants": {
+    "label": "Forecast positions (Fall 2024): Social Marketing Manager; Procurement Manager; Assembly/Packaging Assistants",
+    "slug": "forecast-positions-fall-2024-social-marketing-manager-procurement-manager-assemblypackaging-assistants",
+    "icon": "",
+    "display": false
+  },
+  "administrative-assistantoffice-manager": {
+    "label": "administrative assistant/office manager",
+    "slug": "administrative-assistantoffice-manager",
+    "icon": "",
+    "display": true
+  },
+  "devops": {
+    "label": "DevOps",
+    "slug": "devops",
+    "icon": "",
+    "display": true
+  },
+  "full-stack-developer": {
+    "label": "Full Stack Developer",
+    "slug": "full-stack-developer",
+    "icon": "",
+    "parent": "software-developers",
+    "display": true
+  },
+  "varies": {
+    "label": "Varies",
+    "slug": "varies",
+    "icon": "",
+    "display": true
+  },
+  "modeling-and-simulation-specialist": {
+    "label": "Modeling and Simulation Specialist",
+    "slug": "modeling-and-simulation-specialist",
+    "icon": "",
+    "display": true
+  },
+  "operations-manager": {
+    "label": "Operations Manager",
+    "slug": "operations-manager",
+    "icon": "",
+    "display": true
+  },
+  "project-planners": {
+    "label": "Project Planners",
+    "slug": "project-planners",
+    "icon": "",
+    "display": true
+  },
+  "project-controllers": {
+    "label": "Project Controllers",
+    "slug": "project-controllers",
+    "icon": "",
+    "display": true
+  },
+  "rd-engineers": {
+    "label": "R&D Engineers",
+    "slug": "rd-engineers",
+    "icon": "",
+    "display": true
+  },
+  "electrical": {
+    "label": "Electrical",
+    "slug": "electrical",
+    "icon": "",
+    "display": true
+  },
+  "civil": {
+    "label": "Civil",
+    "slug": "civil",
+    "icon": "",
+    "display": true
+  },
+  "and-mechanical-engineers": {
+    "label": "and Mechanical Engineers",
+    "slug": "and-mechanical-engineers",
+    "icon": "",
+    "display": true
+  },
+  "engineering": {
+    "label": "Engineering",
+    "slug": "engineering",
+    "icon": "",
+    "display": true
+  },
+  "civil-leadprincipal-engineer": {
+    "label": "Civil  Lead/Principal engineer",
+    "slug": "civil-leadprincipal-engineer",
+    "icon": "",
+    "display": true
+  },
+  "software-dev": {
+    "label": "Software dev",
+    "slug": "software-dev",
+    "icon": "",
+    "display": true
+  },
+  "interns": {
+    "label": "interns",
+    "slug": "interns",
+    "icon": "",
+    "display": true
+  },
+  "mechanical-and-aerospace-engineers": {
+    "label": "Mechanical and Aerospace engineers",
+    "slug": "mechanical-and-aerospace-engineers",
+    "icon": "",
+    "display": true
+  },
+  "welders": {
+    "label": "welders",
+    "slug": "welders",
+    "icon": "",
+    "display": true
+  },
+  "maintainence-tech": {
+    "label": "maintainence tech",
+    "slug": "maintainence-tech",
+    "icon": "",
+    "display": true
+  },
+  "warehouse-staff": {
+    "label": "warehouse staff",
+    "slug": "warehouse-staff",
+    "icon": "",
+    "display": true
+  },
+  "research-scientist": {
+    "label": "Research scientist",
+    "slug": "research-scientist",
+    "icon": "",
+    "display": true
+  },
+  "research-associate": {
+    "label": "research associate",
+    "slug": "research-associate",
+    "icon": "",
+    "display": true
+  },
+  "administrator": {
+    "label": "Administrator",
+    "slug": "administrator",
+    "icon": "",
+    "display": true
+  },
+  "embedded-software-and-firmware-developer": {
+    "label": "Embedded Software and Firmware Developer",
+    "slug": "embedded-software-and-firmware-developer",
+    "icon": "",
+    "display": true
+  },
+  "test-engineer": {
+    "label": "Test Engineer",
+    "slug": "test-engineer",
+    "icon": "",
+    "display": true
+  },
+  "scientific-applications-programmer": {
+    "label": "Scientific Applications Programmer",
+    "slug": "scientific-applications-programmer",
+    "icon": "",
+    "display": true
+  },
+  "ms-windows-computer-systems-administrator": {
+    "label": "MS Windows Computer Systems Administrator",
+    "slug": "ms-windows-computer-systems-administrator",
+    "icon": "",
+    "display": true
+  },
+  "modeling-and-simulation-analyst": {
+    "label": "Modeling and Simulation Analyst",
+    "slug": "modeling-and-simulation-analyst",
+    "icon": "",
+    "display": true
+  },
+  "software-engineer-data-scientist-manufacturing-engineer": {
+    "label": "Software engineer;   data scientist;  manufacturing engineer",
+    "slug": "software-engineer-data-scientist-manufacturing-engineer",
+    "icon": "",
+    "display": true
+  },
+  "geologistenvironmental-scientist": {
+    "label": "Geologist/Environmental Scientist",
+    "slug": "geologistenvironmental-scientist",
+    "icon": "",
+    "display": true
+  },
+  "check-out-their-job-board": {
+    "label": "Check out their job board",
+    "slug": "check-out-their-job-board",
+    "icon": "",
+    "display": true
+  },
+  "hr": {
+    "label": "HR",
+    "slug": "hr",
+    "icon": "",
+    "display": true
+  },
+  "finance": {
+    "label": "finance",
+    "slug": "finance",
+    "icon": "",
+    "display": true
+  },
+  "sales-and-marketing": {
+    "label": "sales and marketing",
+    "slug": "sales-and-marketing",
+    "icon": "",
+    "display": true
+  },
+  "chemical-tech": {
+    "label": "Chemical tech",
+    "slug": "chemical-tech",
+    "icon": "",
+    "display": true
+  },
+  "qmsiso-manager": {
+    "label": "QMS/ISO Manager",
+    "slug": "qmsiso-manager",
+    "icon": "",
+    "display": true
+  },
+  "hr-specialist": {
+    "label": "HR Specialist",
+    "slug": "hr-specialist",
+    "icon": "",
+    "display": true
+  },
+  "grants-manager": {
+    "label": "Grants manager",
+    "slug": "grants-manager",
+    "icon": "",
+    "display": true
+  },
+  "lab-manager": {
+    "label": "Lab manager",
+    "slug": "lab-manager",
+    "icon": "",
+    "display": true
+  },
+  "gov-cost-accountant": {
+    "label": "Gov Cost Accountant",
+    "slug": "gov-cost-accountant",
+    "icon": "",
+    "display": true
+  },
+  "ehs-officer": {
+    "label": "EHS Officer",
+    "slug": "ehs-officer",
+    "icon": "",
+    "display": true
+  },
+  "dir-of-manufacturing": {
+    "label": "Dir of Manufacturing",
+    "slug": "dir-of-manufacturing",
+    "icon": "",
+    "display": true
+  },
+  "sr-chemist": {
+    "label": "Sr Chemist",
+    "slug": "sr-chemist",
+    "icon": "",
+    "display": true
+  },
+  "sr-process-engineer": {
+    "label": "Sr Process Engineer",
+    "slug": "sr-process-engineer",
+    "icon": "",
+    "display": true
+  },
+  "sr-controls-engineer": {
+    "label": "Sr Controls Engineer",
+    "slug": "sr-controls-engineer",
+    "icon": "",
+    "display": true
+  },
+  "construction-project-manager": {
+    "label": "Construction Project Manager",
+    "slug": "construction-project-manager",
+    "icon": "",
+    "display": true
+  },
+  "sales-design-consultant": {
+    "label": "Sales + Design Consultant",
+    "slug": "sales-design-consultant",
+    "icon": "",
+    "display": true
+  },
+  "electrical-apprentice": {
+    "label": "Electrical Apprentice",
+    "slug": "electrical-apprentice",
+    "icon": "",
+    "display": true
+  },
+  "construction-labor": {
+    "label": "Construction Labor",
+    "slug": "construction-labor",
+    "icon": "",
+    "display": true
+  },
+  "operations-support": {
+    "label": "Operations Support",
+    "slug": "operations-support",
+    "icon": "",
+    "display": true
+  },
+  "finance-manager": {
+    "label": "Finance Manager",
+    "slug": "finance-manager",
+    "icon": "",
+    "display": true
+  },
+  "mechanical-engineer": {
+    "label": "Mechanical Engineer",
+    "slug": "mechanical-engineer",
+    "icon": "",
+    "display": true
+  },
+  "it-project-manager": {
+    "label": "IT Project Manager",
+    "slug": "it-project-manager",
+    "icon": "",
+    "display": true
+  },
+  "electrical-engineer": {
+    "label": "Electrical Engineer",
+    "slug": "electrical-engineer",
+    "icon": "",
+    "display": true
+  },
+  "data-science": {
+    "label": "Data Science",
+    "slug": "data-science",
+    "icon": "",
+    "display": true
+  },
+  "data-engineering": {
+    "label": "Data Engineering",
+    "slug": "data-engineering",
+    "icon": "",
+    "display": true
+  },
+  "uxui-design": {
+    "label": "UX/UI design",
+    "slug": "uxui-design",
+    "icon": "",
+    "display": true
+  },
+  "software-development": {
+    "label": "Software Development",
+    "slug": "software-development",
+    "icon": "",
+    "display": true
+  },
+  "data-analytics": {
+    "label": "Data Analytics",
+    "slug": "data-analytics",
+    "icon": "",
+    "display": true
+  },
+  "cyber-security-engineer": {
+    "label": "Cyber Security Engineer",
+    "slug": "cyber-security-engineer",
+    "icon": "",
+    "display": true
+  },
+  "cybersecurity-researcher-python": {
+    "label": "cybersecurity researcher (python)",
+    "slug": "cybersecurity-researcher-python",
+    "icon": "",
+    "display": true
+  },
+  "penetration-tester": {
+    "label": "penetration tester",
+    "slug": "penetration-tester",
+    "icon": "",
+    "display": true
+  },
+  "engineering-manager": {
+    "label": "Engineering manager",
+    "slug": "engineering-manager",
+    "icon": "",
+    "display": true
+  },
+  "machinist": {
+    "label": "machinist",
+    "slug": "machinist",
+    "icon": "",
+    "display": true
+  },
+  "electro-mechanical-tech": {
+    "label": "electro-mechanical tech",
+    "slug": "electro-mechanical-tech",
+    "icon": "",
+    "display": true
+  },
+  "dir-of-toxicology-june-24": {
+    "label": "Dir of Toxicology (June 24')",
+    "slug": "dir-of-toxicology-june-24",
+    "icon": "",
+    "display": true
+  },
+  "accessioning": {
+    "label": "Accessioning",
+    "slug": "accessioning",
+    "icon": "",
+    "display": true
+  },
+  "collectors": {
+    "label": "Collectors",
+    "slug": "collectors",
+    "icon": "",
+    "display": true
+  },
+  "toxicology": {
+    "label": "Toxicology",
+    "slug": "toxicology",
+    "icon": "",
+    "display": true
+  },
+  "molecular": {
+    "label": "Molecular",
+    "slug": "molecular",
+    "icon": "",
+    "display": true
+  },
+  "materials-rd-scientist": {
+    "label": "Materials R&D Scientist",
+    "slug": "materials-rd-scientist",
+    "icon": "",
+    "display": true
+  },
+  "plant-operator": {
+    "label": "Plant Operator",
+    "slug": "plant-operator",
+    "icon": "",
+    "display": true
+  },
+  "plant-shift-supervisor": {
+    "label": "Plant Shift Supervisor",
+    "slug": "plant-shift-supervisor",
+    "icon": "",
+    "display": true
+  },
+  "chemical-engineering-techs": {
+    "label": "Chemical Engineering Techs",
+    "slug": "chemical-engineering-techs",
+    "icon": "",
+    "display": true
+  },
+  "deputy-dir-contracts-and-procurment": {
+    "label": "Deputy Dir. - Contracts and Procurment",
+    "slug": "deputy-dir-contracts-and-procurment",
+    "icon": "",
+    "display": true
+  },
+  "mechanical-tech": {
+    "label": "Mechanical Tech",
+    "slug": "mechanical-tech",
+    "icon": "",
+    "display": true
+  },
+  "sr-technical-communications-writer": {
+    "label": "Sr. Technical Communications Writer",
+    "slug": "sr-technical-communications-writer",
+    "icon": "",
+    "display": true
+  },
+  "software-engineers": {
+    "label": "Software Engineers",
+    "slug": "software-engineers",
+    "icon": "",
+    "display": true
+  },
+  "executive-assistant": {
+    "label": "Executive assistant",
+    "slug": "executive-assistant",
+    "icon": "",
+    "display": true
+  },
+  "sales-and-marketing-development": {
+    "label": "sales and marketing development",
+    "slug": "sales-and-marketing-development",
+    "icon": "",
+    "display": true
+  },
+  "field-technicians": {
+    "label": "field technicians",
+    "slug": "field-technicians",
+    "icon": "",
+    "display": true
+  },
+  "lab-and-chemical-technicians": {
+    "label": "lab and chemical technicians",
+    "slug": "lab-and-chemical-technicians",
+    "icon": "",
+    "display": true
+  },
+  "product-engineer": {
+    "label": "Product Engineer",
+    "slug": "product-engineer",
+    "icon": "",
+    "display": true
+  },
+  "ap-ar-admin-assistant": {
+    "label": "A/P A/R Admin Assistant",
+    "slug": "ap-ar-admin-assistant",
+    "icon": "",
+    "display": true
+  },
+  "inside-sales-reps": {
+    "label": "Inside Sales Reps",
+    "slug": "inside-sales-reps",
+    "icon": "",
+    "display": true
+  },
+  "outside-sales-rep": {
+    "label": "Outside Sales Rep",
+    "slug": "outside-sales-rep",
+    "icon": "",
+    "display": true
+  },
+  "software-architect": {
+    "label": "Software Architect",
+    "slug": "software-architect",
+    "icon": "",
+    "parent": "software-developers",
+    "display": true
+  },
+  "scrum-master": {
+    "label": "Scrum Master",
+    "slug": "scrum-master",
+    "icon": "",
+    "display": true
+  }
+}

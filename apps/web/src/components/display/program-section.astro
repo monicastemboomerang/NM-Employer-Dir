@@ -1,0 +1,59 @@
+---
+import { Badge, Button, Text } from "@repo/ui";
+
+interface Props {
+  title: string;
+  description?: string;
+  tags?: string[];
+  link?: string;
+  inline?: boolean;
+}
+
+const { title, description, tags, link } = Astro.props;
+
+const getType = ({ description, tags, link, inline }: Omit<Props, "title">) => {
+  if (description) {
+    if (inline) {
+      return "inline";
+    }
+    return "description";
+  }
+  if (tags && tags.length > 0) {
+    return "inline";
+  }
+  if (link) {
+    return "inline";
+  }
+  return "none";
+};
+
+const type = getType(Astro.props);
+---
+
+{
+  type === "description" && (
+    <>
+      <Text variant="lead">{title}</Text>
+      <Text>{description}</Text>
+    </>
+  )
+}
+
+{
+  type === "inline" && (
+    <div class="flex flex-col md:flex-row flex-wrap md:items-center">
+      <Text variant="lead">{title}:</Text>
+      <div class="flex flex-wrap">
+        {link ? <Button href={link} target="_blank" variant="link">
+            {link}
+          </Button> : null}
+        {tags?.map((tag) => (
+          <Badge className="m-2" key={tag} variant="outline">
+            {tag}
+          </Badge>
+        ))}
+        {description ? <Text className="ml-2">{description}</Text> : null}
+      </div>
+    </div>
+  )
+}

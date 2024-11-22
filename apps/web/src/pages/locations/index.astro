@@ -1,0 +1,45 @@
+---
+import { Programs } from "@repo/program-data";
+import LocationCard from "../../components/display/location-card.astro";
+import TableLayout from "../../components/layouts/table-layout.astro";
+
+const programs = Programs.instance;
+
+const locations = programs.getLocations();
+---
+
+<TableLayout title="Locations">
+  <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    {
+      locations.map((l) => {
+        return <LocationCard displayCount key={l.slug} location={l} />;
+      })
+    }
+  </div>
+</TableLayout>
+
+<!-- 
+return (
+<Card key={l.slug}>
+  <CardHeader>
+    <CardTitle>{l.name}</CardTitle>
+    <Separator />
+    <CardDescription>
+      <Text variant="muted">Available Services:</Text>
+      <Text variant="bold">{l.count}</Text>
+    </CardDescription>
+  </CardHeader>
+
+  <CardFooter className="flex justify-end">
+    {/* <Button variant="outline">Cancel</Button> */}
+    {/* <Button asChild> */}
+    <a
+      class={buttonVariants({ variant: "default" })}
+      href={`/locations/${l.slug}`}
+    >
+      View
+    </a>
+    {/* </Button> */}
+  </CardFooter>
+</Card>
+); -->

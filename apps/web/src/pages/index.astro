@@ -1,0 +1,98 @@
+---
+import { Programs } from "@repo/program-data";
+import { Button } from "@repo/ui";
+import BaseLayout from "../components/layouts/base-layout.astro";
+// Component Imports
+// import "@repo/ui/dist/index.css";
+// import "../styles/globals.css";
+import CardDisplay from "../components/display/card-display.astro";
+import GridSectionDisplay from "../components/display/grid-section.astro";
+import HeaderSection from "../components/display/header-section.astro";
+import LocationCard from "../components/display/location-card.astro";
+import { SearchBar } from "../components/search";
+import { SITE_INFO } from "../utils";
+
+export const something = 134;
+const programs = Programs.instance;
+const categories = programs.getCategories(true).filter((_, i) => i < 10);
+
+const locations = programs
+  .getLocations()
+  .filter((location) => location.label !== "Statewide");
+
+const curriculumFocusAreas = programs
+  .getHiringFors(true)
+  .filter((_, i) => i < 6);
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/basics/astro-components/
+---
+
+<BaseLayout title="Home">
+  <HeaderSection
+    description={SITE_INFO.description}
+    header={SITE_INFO.longTitle}
+    wrap
+  />
+  <div class="pt-8 bg-primary">
+    <SearchBar client:load />
+  </div>
+  <!-- <div class="h-20"></div> -->
+
+  {/* Main Content */}
+  <!-- <main class="container mx-auto px-4 py-12"> -->
+
+  {/* Curriculums */}
+  <GridSectionDisplay bg title="Hiring For">
+    {
+      curriculumFocusAreas.map((service) => (
+        <CardDisplay
+          count={service.count}
+          href={`/hiring-for/${service.slug}`}
+          icon={service.icon}
+          key={service.label}
+          title={service.label}
+        />
+      ))
+    }
+    <div class="flex justify-end" slot="after-grid">
+      <Button href="/programs" variant="outline-secondary">View All</Button>
+    </div>
+  </GridSectionDisplay>
+
+  {/* Locations */}
+  <GridSectionDisplay includeLarge title="Locations">
+    {
+      locations.map((location) => (
+        <LocationCard key={location.slug} location={location} />
+      ))
+    }
+  </GridSectionDisplay>
+
+  {/* Categories */}
+  <GridSectionDisplay bg title="Browse Industries">
+    {
+      categories.map((service) => (
+        <CardDisplay
+          count={service.count}
+          href={`/categories/${service.slug}`}
+          icon={service.icon}
+          key={service.label}
+          title={service.label}
+        />
+      ))
+    }
+    <div class="flex justify-end" slot="after-grid">
+      <Button href="/programs" variant="outline-secondary">View All</Button>
+    </div>
+  </GridSectionDisplay>
+
+  <!-- </main> -->
+
+  <!-- <CardWithForm client:load />
+  <Button variant="destructive">Wassup</Button>
+  <Button variant="default">Sample</Button>
+  <Counter {...someProps} client:visible>
+    <h1 class="bg-red-500">Hello, React!</h1>
+  </Counter> -->
+</BaseLayout>

@@ -1,0 +1,50 @@
+{
+  "name": "{{import}}",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    {{#if jest}}
+    "test": "jest",
+    {{/if}}
+    "circular": "dpdm --no-warning --no-tree --exit-code circular:1 ./src/index.ts"
+  },
+  {{#if jest}}
+  "jest": {
+    "preset": "@repo/jest-presets/browser"
+  },
+  {{/if}}
+  "dependencies": {
+    {{#if reactish}}
+    "react": "*"
+    {{/if}}
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/eslint": "*",
+    {{#if jest}}
+    "@repo/jest-presets": "workspace:*",
+    "@types/jest": "*",
+    "jest": "*",
+    {{/if}}
+    {{#if reactish}}
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    {{/if}}
+    "dpdm": "*",
+    "eslint": "*",
+    "tsup": "*",
+    "typescript": "*"
+  }
+}

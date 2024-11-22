@@ -1,0 +1,47 @@
+---
+import { Container, Heading, Separator, Text } from "@repo/ui";
+import { BackButton } from "../buttons/back-button";
+
+interface Props {
+  header?: string;
+  description?: string;
+  includeBackButton?: boolean;
+  wrap?: boolean;
+}
+
+// class="w-full px-4 py-16 bg-header bg-section-1"
+
+const { header, description, includeBackButton, wrap } = Astro.props;
+---
+
+<Container bg="header" className="px-4 py-24" client:visible image="light-1">
+  <header>
+    <div
+      class="flex flex-col justify-center items-center text-primary-foreground"
+    >
+      <div
+        class="flex items-center justify-between space-x-4 w-full drop-shadow-2xl"
+      >
+        {includeBackButton ? <BackButton client:load /> : null}
+        <div class="flex flex-col flex-1 items-start">
+          <div class:list={["flex  flex-col ", { "max-w-xl": wrap }]}>
+            <Heading
+              className="mb-4 max-w-prose"
+              style={{
+                textShadow: "1px 1px 6px rgba(0, 0, 0, .87)",
+              }}
+            >
+              {header}</Heading
+            >
+            <Text className="text-primary-foreground" variant="lead"
+              >{description}</Text
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <Separator />
+
+    <slot />
+  </header>
+</Container>

@@ -1,0 +1,47 @@
+---
+import { Container, type ContainerProps, Heading } from "@repo/ui";
+
+interface Props {
+  title?: string;
+  bg?: boolean;
+  includeLarge?: boolean;
+  bgImage?: ContainerProps["image"];
+}
+
+const { title, bg, includeLarge, bgImage } = Astro.props;
+// const containerClass = cn([
+//   "pb-16 py-8",
+//   { "bg-accent text-accent-foreground": bg },
+// ]);
+---
+
+<Container
+  bg={bg ? "accent" : "default"}
+  className="pb-16 py-8"
+  client:idle
+  image={bgImage}
+>
+  {title ? <Heading level={3}>{title}</Heading> : null}
+
+  <div
+    class:list={[
+      "grid grid-cols-1 md:grid-cols-2 gap-6",
+      { "mt-4": Boolean(title) },
+      { "lg:grid-cols-3": includeLarge },
+    ]}
+  >
+    <slot />
+  </div>
+  {
+    Astro.slots["after-grid"] ? (
+      <div class:list={{ "mt-4": Boolean(title) }}>
+        <slot name="after-grid" />
+      </div>
+    ) : null
+  }
+</Container>
+
+<!-- <div class="mt-4">
+    <slot name="after-grid" />
+  </div> -->
+<!-- <slot class="mt-4" name="after-grid" /> -->

@@ -1,0 +1,42 @@
+{
+  "name": "@repo/doc-search",
+  "version": "1.0.0",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "test": "jest",
+    "circular": "dpdm --no-warning --no-tree --exit-code circular:1 ./src/index.ts"
+  },
+  "jest": {
+    "preset": "@repo/jest-presets/browser"
+  },
+  "dependencies": {
+    "react": "*",
+    "@repo/program-data": "workspace:*"
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/jest-presets": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/eslint": "*",
+    "@types/jest": "*",
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "dpdm": "*",
+    "eslint": "*",
+    "jest": "*",
+    "minisearch": "^7.1.0",
+    "tsup": "*",
+    "typescript": "*"
+  }
+}
